@@ -12,7 +12,7 @@
         }
     </script>
     <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
     </style>
@@ -30,6 +30,7 @@
             <nav class="hidden lg:flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
                 <a href="#home" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Home</a>
                 <a href="#instructor" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Instructor</a>
+                <a href="#spotlight" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Spotlights</a>
                 <a href="#about" class="hover:text-teal-600 dark:hover:text-teal-400 transition">About</a>
                 <a href="#dimensions" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Dimensions</a>
                 <a href="#game" class="hover:text-teal-600 dark:hover:text-teal-400 transition">2D Quest</a>
@@ -110,6 +111,79 @@
                     "Self-discovery is not about finding a new version of yourself, but unpacking the unique layers of who you have always been. Through introspection, balance across all dimensions, and open inquiry, we foster true personal growth."
                 </blockquote>
             </div>
+        </div>
+    </section>
+
+    <!-- 17-MEMBER REFLECTION SPOTLIGHT CAROUSEL SECTION -->
+    <section id="spotlight" class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="relative bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
+            
+            <div class="grid lg:grid-cols-12 items-stretch min-h-[480px]">
+                <!-- LEFT COLUMN: REFLECTION TEXT & HEADLINE -->
+                <div class="lg:col-span-7 p-8 sm:p-12 lg:p-16 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-teal-400 text-xs sm:text-sm font-bold uppercase tracking-widest">
+                                Member Reflection Spotlight
+                            </span>
+                            <span id="spotlight-counter" class="bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold px-3 py-1 rounded-full">
+                                Reflection 1 of 17
+                            </span>
+                        </div>
+                        
+                        <!-- BOLD STACKED HEADLINE -->
+                        <h2 id="spotlight-headline" class="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-none mb-6">
+                            BE AUTHENTIC.<br/>
+                            BE MINDFUL.<br/>
+                            <span class="text-teal-400">BE YOU.</span>
+                        </h2>
+
+                        <!-- REFLECTION STATEMENT -->
+                        <blockquote id="spotlight-quote" class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 italic">
+                            "Unpacking the self taught me that growth isn't about fitting into external expectations. It is about understanding how my emotional, physical, and digital choices shape my inner identity."
+                        </blockquote>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-800 mb-6">
+                            <div id="spotlight-avatar-initial" class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center font-bold text-slate-950 text-sm">
+                                B
+                            </div>
+                            <div>
+                                <h4 id="spotlight-author" class="font-bold text-white text-sm">Brynn Bonghanoy Pros</h4>
+                                <p id="spotlight-role" class="text-xs text-teal-400">BSIS-ACT Student / Co-Creator</p>
+                            </div>
+                        </div>
+
+                        <!-- CAROUSEL CONTROL BUTTONS -->
+                        <div class="flex items-center gap-3">
+                            <button onclick="prevSpotlight()" class="bg-slate-800 hover:bg-teal-600 text-white w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg transition border border-slate-700" aria-label="Previous Reflection">
+                                ‹
+                            </button>
+                            <button onclick="nextSpotlight()" class="bg-slate-800 hover:bg-teal-600 text-white w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg transition border border-slate-700" aria-label="Next Reflection">
+                                ›
+                            </button>
+                            <span class="text-xs text-slate-400 ml-2">Use arrows to browse all 17 reflections</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: MEMBER PICTURE / BLANK PLACEHOLDER -->
+                <div class="lg:col-span-5 relative min-h-[350px] lg:min-h-full bg-slate-950 cursor-pointer group" onclick="expandSpotlightImage()">
+                    <img 
+                        id="spotlight-img"
+                        src="images/member1.jpg" 
+                        alt="Member Reflection Picture" 
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                        onerror="this.src='https://via.placeholder.com/600x800/0f172a/334155?text=Photo+Placeholder';"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-900 via-transparent to-transparent opacity-80 lg:opacity-50"></div>
+                    <div class="absolute bottom-4 right-4 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-semibold text-white border border-white/10 group-hover:bg-teal-600 transition">
+                        🔍 Click to Zoom
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -753,7 +827,162 @@
         setInterval(nextSlide, 4000);
         updateSlide();
 
-        // --- 5. SELF-RATING GAME LOGIC (WITH TIE-BREAK FIX) ---
+        // --- 5. 17-MEMBER REFLECTION SPOTLIGHT CAROUSEL LOGIC ---
+        const spotlightData = [
+            {
+                name: "Brynn Bonghanoy Pros",
+                role: "BSIS-ACT Student",
+                headline: "BE AUTHENTIC.<br/>BE MINDFUL.<br/><span class='text-teal-400'>BE YOU.</span>",
+                quote: "Unpacking the self taught me that growth isn't about fitting into external expectations. It is about understanding how my emotional, physical, and digital choices shape my inner identity.",
+                img: "images/member1.jpg"
+            },
+            {
+                name: "Leslie Ann Murillo",
+                role: "Co-Creator & Contributor",
+                headline: "EMBRACE REST.<br/>BUILD PURPOSE.<br/><span class='text-teal-400'>GROW DAILY.</span>",
+                quote: "Balancing my physical well-being with emotional mindfulness allowed me to find quiet focus during intense study projects.",
+                img: "images/member2.jpg"
+            },
+            {
+                name: "Pionie Mae dela Serna",
+                role: "Co-Creator & Contributor",
+                headline: "CONNECT INNER.<br/>ENGAGE OUTER.<br/><span class='text-teal-400'>STAY TRUE.</span>",
+                quote: "Understanding my social self helped me appreciate the deep connections we build when we listen with empathy.",
+                img: "images/member3.jpg"
+            },
+            {
+                name: "Mary Jane Tenegra",
+                role: "Co-Creator & Contributor",
+                headline: "SEEK WISDOM.<br/>CHRENGTHEN VALUES.<br/><span class='text-teal-400'>LIVE FULFILLED.</span>",
+                quote: "My reflection focuses on keeping a strong spiritual compass while navigating dynamic academic challenges.",
+                img: "images/member4.jpg"
+            },
+            {
+                name: "Art Kenly Bayhon",
+                role: "Co-Creator & Contributor",
+                headline: "THINK CRITICALLY.<br/>ACT INTEGRITY.<br/><span class='text-teal-400'>SHAPE TOMORROW.</span>",
+                quote: "Developing intellectual curiosity opened up new possibilities for how I approach problem solving and teamwork.",
+                img: "images/member5.jpg"
+            },
+            {
+                name: "Celney Miramonte",
+                role: "Co-Creator & Contributor",
+                headline: "HARMONIZE BODY.<br/>BALANCE MIND.<br/><span class='text-teal-400'>STAY GROUNDED.</span>",
+                quote: "I learned that physical self-care is the foundation upon which mental clarity and focus are built.",
+                img: "images/member6.jpg"
+            },
+            {
+                name: "Rica Jane Calapiz",
+                role: "Co-Creator & Contributor",
+                headline: "KNOW EMOTIONS.<br/>FIND PEACE.<br/><span class='text-teal-400'>SPEAK TRUTH.</span>",
+                quote: "Acknowledging my feelings without judgment gave me the freedom to respond calmly in demanding situations.",
+                img: "images/member7.jpg"
+            },
+            {
+                name: "Khen Charles Amit",
+                role: "Co-Creator & Contributor",
+                headline: "DIGITAL BOUNDS.<br/>REAL FRIENDS.<br/><span class='text-teal-400'>STAY PRESENT.</span>",
+                quote: "Setting clear screen-time limits helped me rebuild real-world conversations and presence with my group.",
+                img: "images/member8.jpg"
+            },
+            {
+                name: "Carl Vincent Eurolfan",
+                role: "Co-Creator & Contributor",
+                headline: "HONOR HABITS.<br/>INSPIRE ALL.<br/><span class='text-teal-400'>BUILD FAITH.</span>",
+                quote: "Consistent daily habits shape our character far more than occasional big efforts ever could.",
+                img: "images/member9.jpg"
+            },
+            {
+                name: "Neptune Fidel Bustillo",
+                role: "Co-Creator & Contributor",
+                headline: "STAY CURIOUS.<br/>EXPLORE DEPTH.<br/><span class='text-teal-400'>NEVER STOP.</span>",
+                quote: "Curiosity is the engine of self-awareness. Never hesitate to ask deep questions about who you are becoming.",
+                img: "images/member10.jpg"
+            },
+            {
+                name: "Jared Ramirez",
+                role: "Co-Creator & Contributor",
+                headline: "SUPPORT FRIENDS.<br/>COMMUNITY FIRST.<br/><span class='text-teal-400'>TOGETHER STRONG.</span>",
+                quote: "Our social dimension flourishes when we prioritize lifting up the people working alongside us.",
+                img: "images/member11.jpg"
+            },
+            {
+                name: "Kettalyn Rose Reyes",
+                role: "Co-Creator & Contributor",
+                headline: "INNER HARMONY.<br/>GENTLE GRACE.<br/><span class='text-teal-400'>LIGHT WITHIN.</span>",
+                quote: "Self-compassion is just as critical as ambition. Treat your mistakes as valuable lessons along the way.",
+                img: "images/member12.jpg"
+            },
+            {
+                name: "John Rey Galero",
+                role: "Co-Creator & Contributor",
+                headline: "STEADY MIND.<br/>FOCUSED GOALS.<br/><span class='text-teal-400'>CLEAR PATH.</span>",
+                quote: "When your internal values align with your daily actions, every step forward feels intentional.",
+                img: "images/member13.jpg"
+            },
+            {
+                name: "John Kyle Gocela",
+                role: "Co-Creator & Contributor",
+                headline: "DIGITAL BALANCE.<br/>TRUE IDENTITY.<br/><span class='text-teal-400'>BE REAL.</span>",
+                quote: "Maintaining an authentic digital footprint means expressing real thoughts rather than a curated persona.",
+                img: "images/member14.jpg"
+            },
+            {
+                name: "Jay-yann Gesulga",
+                role: "Co-Creator & Contributor",
+                headline: "NURTURE HEALTH.<br/>ENERGY HIGH.<br/><span class='text-teal-400'>LIVE VIBRANT.</span>",
+                quote: "Prioritizing physical vitality gave me the stamina needed to contribute meaningfully to this web project.",
+                img: "images/member15.jpg"
+            },
+            {
+                name: "Regie Mae Segovia",
+                role: "Co-Creator & Contributor",
+                headline: "EMPATHY FIRST.<br/>DEEP BONDS.<br/><span class='text-teal-400'>KIND HEART.</span>",
+                quote: "True self-awareness opens our eyes to the struggles and strengths of everyone around us.",
+                img: "images/member16.jpg"
+            },
+            {
+                name: "Member 17 Name",
+                role: "Co-Creator & Contributor",
+                headline: "UNPACK SELF.<br/>DISCOVER ALL.<br/><span class='text-teal-400'>FUTURE READY.</span>",
+                quote: "This collaborative portal represents our shared journey into holistic self-understanding and technical mastery.",
+                img: "images/member17.jpg"
+            }
+        ];
+
+        let currentSpotlight = 0;
+
+        function updateSpotlight() {
+            const data = spotlightData[currentSpotlight];
+            document.getElementById('spotlight-counter').innerText = `Reflection ${currentSpotlight + 1} of ${spotlightData.length}`;
+            document.getElementById('spotlight-headline').innerHTML = data.headline;
+            document.getElementById('spotlight-quote').innerText = `"${data.quote}"`;
+            document.getElementById('spotlight-author').innerText = data.name;
+            document.getElementById('spotlight-role').innerText = data.role;
+            document.getElementById('spotlight-avatar-initial').innerText = data.name.charAt(0);
+            
+            const imgElem = document.getElementById('spotlight-img');
+            imgElem.src = data.img;
+        }
+
+        function nextSpotlight() {
+            currentSpotlight = (currentSpotlight + 1) % spotlightData.length;
+            updateSpotlight();
+        }
+
+        function prevSpotlight() {
+            currentSpotlight = (currentSpotlight - 1 + spotlightData.length) % spotlightData.length;
+            updateSpotlight();
+        }
+
+        function expandSpotlightImage() {
+            const data = spotlightData[currentSpotlight];
+            openModal(data.img, `${data.name} - Reflection Spotlight`);
+        }
+
+        updateSpotlight();
+
+        // --- 6. SELF-RATING GAME LOGIC (WITH TIE-BREAK FIX) ---
         function updateScores() {
             const dimensions = ['physical', 'emotional', 'intellectual', 'social', 'spiritual', 'digital'];
             let total = 0;
@@ -810,7 +1039,7 @@
 
         updateScores();
 
-        // --- 6. 2D EXPLORATION MINI-GAME LOGIC ---
+        // --- 7. 2D EXPLORATION MINI-GAME LOGIC ---
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -966,7 +1195,7 @@
 
         gameLoop();
 
-        // --- 7. CLINICAL ASSESSMENT LOGIC ---
+        // --- 8. CLINICAL ASSESSMENT LOGIC ---
         function submitAssessment(e) {
             e.preventDefault();
             const form = e.target;
@@ -977,7 +1206,6 @@
             const q5 = parseInt(form.q5.value);
 
             const totalScore = q1 + q2 + q3 + q4 + q5;
-            const maxScore = 13;
 
             const resultDiv = document.getElementById('assessment-result');
             const resultTitle = document.getElementById('assessment-title');
