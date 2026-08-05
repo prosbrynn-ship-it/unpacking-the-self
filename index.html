@@ -27,14 +27,14 @@
                 <span>Unpacking<span class="text-teal-600 dark:text-teal-400">Self</span></span>
             </a>
             
-            <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+            <nav class="hidden lg:flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
                 <a href="#home" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Home</a>
+                <a href="#instructor" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Instructor</a>
                 <a href="#about" class="hover:text-teal-600 dark:hover:text-teal-400 transition">About</a>
                 <a href="#dimensions" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Dimensions</a>
-                <a href="#infographic" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Infographic</a>
-                <a href="#video" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Video</a>
+                <a href="#game" class="hover:text-teal-600 dark:hover:text-teal-400 transition">2D Quest</a>
                 <a href="#self-rating-game" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Scorecard</a>
-                <a href="#quiz" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Self Check</a>
+                <a href="#assessment" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Assessment</a>
                 <a href="#team" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Our Team</a>
             </nav>
 
@@ -45,8 +45,8 @@
                     <span id="theme-toggle-light-icon" class="hidden">☀️</span>
                 </button>
 
-                <a href="#dimensions" class="hidden sm:inline-flex bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-sm transition">
-                    Start Exploring
+                <a href="#assessment" class="hidden sm:inline-flex bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-sm transition">
+                    Take Assessment
                 </a>
             </div>
         </div>
@@ -67,11 +67,11 @@
                     An interactive guide to understanding the physical, emotional, intellectual, social, spiritual, and digital aspects that make up your unique human identity.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#dimensions" class="bg-teal-600 hover:bg-teal-700 text-white font-medium px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition">
-                        Explore Dimensions
+                    <a href="#assessment" class="bg-teal-600 hover:bg-teal-700 text-white font-medium px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition">
+                        Clinical Assessment 📋
                     </a>
-                    <a href="#self-rating-game" class="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium px-6 py-3 rounded-xl transition">
-                        Take Scorecard
+                    <a href="#game" class="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium px-6 py-3 rounded-xl transition">
+                        Play 2D Quest 🎮
                     </a>
                 </div>
             </div>
@@ -93,8 +93,28 @@
 
     <hr class="max-w-7xl mx-auto border-slate-200 dark:border-slate-800">
 
+    <!-- INSTRUCTOR SECTION -->
+    <section id="instructor" class="py-16 px-6 max-w-5xl mx-auto">
+        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 sm:p-10 shadow-lg flex flex-col sm:flex-row items-center gap-8">
+            <div class="shrink-0 relative group cursor-pointer" onclick="openModal('images/instructor.jpg', 'Course Instructor')">
+                <img src="images/instructor.jpg" alt="Course Instructor" class="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl object-cover border-4 border-teal-500 shadow-md group-hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/200?text=Instructor+Photo';">
+                <div class="absolute inset-0 bg-slate-900/30 rounded-2xl opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-semibold">🔍 View</div>
+            </div>
+            <div class="text-center sm:text-left">
+                <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    Course Instructor & Advisor
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2">Instructor's Name Here</h2>
+                <p class="text-teal-600 dark:text-teal-400 font-medium text-sm mb-4">Faculty Member, Understanding the Self Course</p>
+                <blockquote class="italic text-slate-600 dark:text-slate-300 text-sm leading-relaxed bg-slate-50 dark:bg-slate-900/60 p-4 rounded-xl border-l-4 border-teal-500">
+                    "Self-discovery is not about finding a new version of yourself, but unpacking the unique layers of who you have always been. Through introspection, balance across all dimensions, and open inquiry, we foster true personal growth."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
     <!-- ABOUT SECTION -->
-    <section id="about" class="py-20 px-6 max-w-7xl mx-auto">
+    <section id="about" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-slate-800">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">What is the Self?</h2>
             <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -235,6 +255,58 @@
         </div>
     </section>
 
+    <!-- INTERACTIVE 2D EXPLORATION MINI-GAME -->
+    <section id="game" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-xl text-center">
+            <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                Interactive Quest
+            </span>
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Unpack the Self: 2D Quest</h2>
+            <p class="text-slate-600 dark:text-slate-300 text-sm mb-6 max-w-xl mx-auto">
+                Move your avatar using <strong>WASD / Arrow Keys</strong> or the on-screen controls to collect all 6 Dimension Orbs and complete your self-discovery!
+            </p>
+
+            <!-- GAME CANVAS CONTAINER -->
+            <div class="relative w-full max-w-2xl mx-auto aspect-[16/10] bg-slate-900 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-inner">
+                <canvas id="gameCanvas" width="640" height="400" class="w-full h-full block"></canvas>
+                
+                <!-- OVERLAY INSIGHT POPUP -->
+                <div id="game-popup" class="absolute inset-0 bg-slate-950/85 backdrop-blur-sm hidden flex flex-col items-center justify-center p-6 text-white text-center transition-all">
+                    <span id="popup-badge" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2"></span>
+                    <h3 id="popup-title" class="text-2xl font-extrabold mb-2"></h3>
+                    <p id="popup-desc" class="text-sm text-slate-200 max-w-md mb-6 leading-relaxed"></p>
+                    <button onclick="resumeGame()" class="bg-teal-500 hover:bg-teal-600 text-slate-950 font-bold px-6 py-2.5 rounded-xl transition shadow-lg">
+                        Continue Quest ➔
+                    </button>
+                </div>
+            </div>
+
+            <!-- PROGRESS & MOBILE CONTROLS -->
+            <div class="mt-6 max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                <!-- Progress Tracker -->
+                <div class="w-full sm:w-auto text-left flex-1">
+                    <div class="flex justify-between text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+                        <span>Identity Orbs Collected</span>
+                        <span id="orb-count" class="text-teal-600 dark:text-teal-400 font-bold">0 / 6</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-3 rounded-full overflow-hidden">
+                        <div id="orb-bar" class="bg-teal-500 h-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <!-- Touch / On-screen D-Pad Controls for Mobile -->
+                <div class="grid grid-cols-3 gap-1 w-32 shrink-0">
+                    <div></div>
+                    <button onpointerdown="movePlayer('up')" class="bg-slate-200 dark:bg-slate-700 hover:bg-teal-600 hover:text-white p-2 rounded-lg font-bold text-sm">▲</button>
+                    <div></div>
+                    <button onpointerdown="movePlayer('left')" class="bg-slate-200 dark:bg-slate-700 hover:bg-teal-600 hover:text-white p-2 rounded-lg font-bold text-sm">◀</button>
+                    <button onpointerdown="movePlayer('down')" class="bg-slate-200 dark:bg-slate-700 hover:bg-teal-600 hover:text-white p-2 rounded-lg font-bold text-sm">▼</button>
+                    <button onpointerdown="movePlayer('right')" class="bg-slate-200 dark:bg-slate-700 hover:bg-teal-600 hover:text-white p-2 rounded-lg font-bold text-sm">▶</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- INTERACTIVE SELF-RATING GAME SECTION -->
     <section id="self-rating-game" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800">
         <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-8 sm:p-12 shadow-xl">
@@ -324,6 +396,135 @@
                 <p id="score-analysis" class="text-sm text-slate-100 max-w-xl mx-auto leading-relaxed">
                     Adjust the sliders to reflect your current personal wellbeing and see your tailored growth focus.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLINICAL SELF-ASSESSMENT FORM SECTION -->
+    <section id="assessment" class="py-20 px-6 max-w-4xl mx-auto border-t border-slate-200 dark:border-slate-800">
+        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 sm:p-12 shadow-xl">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    Self-Check Questionnaire
+                </span>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Clinical Self-Assessment</h2>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    Answer these 5 reflective diagnostic questions to evaluate your current psychological and holistic alignment.
+                </p>
+            </div>
+
+            <form id="clinical-form" onsubmit="submitAssessment(event)" class="space-y-8">
+                <!-- Question 1 -->
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <label class="block font-semibold text-slate-900 dark:text-white text-sm mb-3">
+                        1. How frequently have you felt overwhelmed by emotional stress over the past month?
+                    </label>
+                    <div class="grid sm:grid-cols-4 gap-3">
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q1" value="0" required class="accent-teal-600"> Never / Rarely
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q1" value="1" class="accent-teal-600"> Sometimes
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q1" value="2" class="accent-teal-600"> Often
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q1" value="3" class="accent-teal-600"> Almost Always
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <label class="block font-semibold text-slate-900 dark:text-white text-sm mb-3">
+                        2. Do you feel your physical habits (sleep, exercise, diet) adequately support your daily activities?
+                    </label>
+                    <div class="grid sm:grid-cols-4 gap-3">
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q2" value="3" required class="accent-teal-600"> Fully Support
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q2" value="2" class="accent-teal-600"> Mostly Support
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q2" value="1" class="accent-teal-600"> Inconsistent
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q2" value="0" class="accent-teal-600"> Severely Lacking
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <label class="block font-semibold text-slate-900 dark:text-white text-sm mb-3">
+                        3. How aligned do you feel with your core ethical values and life purpose?
+                    </label>
+                    <div class="grid sm:grid-cols-4 gap-3">
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q3" value="3" required class="accent-teal-600"> Strongly Aligned
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q3" value="2" class="accent-teal-600"> Moderately
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q3" value="1" class="accent-teal-600"> Slightly Confused
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q3" value="0" class="accent-teal-600"> Disconnected
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <label class="block font-semibold text-slate-900 dark:text-white text-sm mb-3">
+                        4. Does your digital footprint and social media activity reflect your authentic true self?
+                    </label>
+                    <div class="grid sm:grid-cols-3 gap-3">
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q4" value="2" required class="accent-teal-600"> Yes, completely authentic
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q4" value="1" class="accent-teal-600"> Partially curated persona
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q4" value="0" class="accent-teal-600"> Entirely artificial identity
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <label class="block font-semibold text-slate-900 dark:text-white text-sm mb-3">
+                        5. How supported do you feel by your social circle and interpersonal relationships?
+                    </label>
+                    <div class="grid sm:grid-cols-3 gap-3">
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q5" value="2" required class="accent-teal-600"> Strongly Supported
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q5" value="1" class="accent-teal-600"> Somewhat Supported
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q5" value="0" class="accent-teal-600"> Isolated
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg transition duration-200">
+                        Submit Assessment ➔
+                    </button>
+                </div>
+            </form>
+
+            <!-- ASSESSMENT RESULT DISPLAY -->
+            <div id="assessment-result" class="hidden mt-8 p-6 bg-teal-50 dark:bg-slate-900 border border-teal-200 dark:border-teal-800 rounded-2xl text-center">
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-100 dark:bg-teal-950 px-3 py-1 rounded-full inline-block mb-3">Diagnostic Summary</span>
+                <h3 id="assessment-title" class="text-2xl font-bold text-slate-900 dark:text-white mb-2"></h3>
+                <p id="assessment-text" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl mx-auto"></p>
             </div>
         </div>
     </section>
@@ -552,14 +753,14 @@
         setInterval(nextSlide, 4000);
         updateSlide();
 
-        // --- 5. SELF-RATING GAME LOGIC ---
+        // --- 5. SELF-RATING GAME LOGIC (WITH TIE-BREAK FIX) ---
         function updateScores() {
             const dimensions = ['physical', 'emotional', 'intellectual', 'social', 'spiritual', 'digital'];
             let total = 0;
             let lowestDim = '';
             let lowestVal = 11;
             let highestDim = '';
-            let highestVal = 0;
+            let highestVal = -1;
 
             dimensions.forEach(dim => {
                 const val = parseInt(document.getElementById(`rate-${dim}`).value);
@@ -589,7 +790,14 @@
             };
 
             let summaryText = "";
-            if (averagePct >= 80) {
+
+            if (lowestVal === highestVal) {
+                if (highestVal === 10) {
+                    summaryText = `🎉 <strong>Absolute Perfection!</strong> You feel completely fulfilled (10/10) across all 6 dimensions of identity! Keep up this incredible balance.`;
+                } else {
+                    summaryText = `⚖️ <strong>Perfectly Balanced!</strong> You have rated all your dimensions equally at ${highestVal}/10. Keep nurturing all areas to raise your overall wellbeing!`;
+                }
+            } else if (averagePct >= 80) {
                 summaryText = `🌟 Excellent harmony! Your highest strength is your <strong>${dimNames[highestDim]}</strong>. To keep growing, pay slight attention to your <strong>${dimNames[lowestDim]}</strong>.`;
             } else if (averagePct >= 50) {
                 summaryText = `⚖️ You have a solid foundation! You feel strong in your <strong>${dimNames[highestDim]}</strong>. For better overall alignment, focus on giving more care to your <strong>${dimNames[lowestDim]}</strong>.`;
@@ -600,8 +808,195 @@
             document.getElementById('score-analysis').innerHTML = summaryText;
         }
 
-        // Run initial evaluation on page load
         updateScores();
+
+        // --- 6. 2D EXPLORATION MINI-GAME LOGIC ---
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let isPaused = false;
+        let collectedCount = 0;
+
+        const player = {
+            x: 320,
+            y: 200,
+            size: 16,
+            speed: 4,
+            color: '#0d9488'
+        };
+
+        const keys = {
+            ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false,
+            w: false, s: false, a: false, d: false
+        };
+
+        const orbs = [
+            { name: "Physical Self", color: "#f59e0b", badgeBg: "bg-amber-500", x: 100, y: 80, size: 14, collected: false, desc: "Focuses on physiological health, body image, nutrition, and restorative rest habits." },
+            { name: "Emotional Self", color: "#f43f5e", badgeBg: "bg-rose-500", x: 540, y: 80, size: 14, collected: false, desc: "Involves understanding mood patterns, managing stress response, and practicing emotional regulation." },
+            { name: "Intellectual Self", color: "#0284c7", badgeBg: "bg-sky-500", x: 100, y: 320, size: 14, collected: false, desc: "Drives critical thinking, continuous curiosity, logic, and intellectual exploration." },
+            { name: "Social Self", color: "#10b981", badgeBg: "bg-emerald-500", x: 540, y: 320, size: 14, collected: false, desc: "Reflects how you build healthy relationships, engage with culture, and interact in group settings." },
+            { name: "Spiritual Self", color: "#a855f7", badgeBg: "bg-purple-500", x: 320, y: 70, size: 14, collected: false, desc: "Centers around core principles, purpose, inner mindfulness, and alignment with personal values." },
+            { name: "Digital Self", color: "#6366f1", badgeBg: "bg-indigo-500", x: 320, y: 330, size: 14, collected: false, desc: "Encompasses your online digital footprint, social media persona, and setting screen-time boundaries." }
+        ];
+
+        window.addEventListener('keydown', (e) => {
+            if (keys.hasOwnProperty(e.key)) {
+                keys[e.key] = true;
+                if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) e.preventDefault();
+            }
+        });
+
+        window.addEventListener('keyup', (e) => {
+            if (keys.hasOwnProperty(e.key)) keys[e.key] = false;
+        });
+
+        function movePlayer(dir) {
+            if (isPaused) return;
+            if (dir === 'up') player.y = Math.max(player.size, player.y - 18);
+            if (dir === 'down') player.y = Math.min(canvas.height - player.size, player.y + 18);
+            if (dir === 'left') player.x = Math.max(player.size, player.x - 18);
+            if (dir === 'right') player.x = Math.min(canvas.width - player.size, player.x + 18);
+        }
+
+        function updateGame() {
+            if (isPaused) return;
+
+            if ((keys.ArrowUp || keys.w) && player.y > player.size) player.y -= player.speed;
+            if ((keys.ArrowDown || keys.s) && player.y < canvas.height - player.size) player.y += player.speed;
+            if ((keys.ArrowLeft || keys.a) && player.x > player.size) player.x -= player.speed;
+            if ((keys.ArrowRight || keys.d) && player.x < canvas.width - player.size) player.x += player.speed;
+
+            orbs.forEach(orb => {
+                if (!orb.collected) {
+                    const dx = player.x - orb.x;
+                    const dy = player.y - orb.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < player.size + orb.size) {
+                        orb.collected = true;
+                        collectedCount++;
+                        triggerOrbModal(orb);
+                    }
+                }
+            });
+
+            document.getElementById('orb-count').innerText = `${collectedCount} / 6`;
+            document.getElementById('orb-bar').style.width = `${(collectedCount / 6) * 100}%`;
+        }
+
+        function drawGame() {
+            ctx.fillStyle = '#0f172a';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < canvas.width; x += 40) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+            }
+            for (let y = 0; y < canvas.height; y += 40) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+            }
+
+            orbs.forEach(orb => {
+                if (!orb.collected) {
+                    ctx.beginPath();
+                    ctx.arc(orb.x, orb.y, orb.size, 0, Math.PI * 2);
+                    ctx.fillStyle = orb.color;
+                    ctx.shadowColor = orb.color;
+                    ctx.shadowBlur = 12;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+
+                    ctx.beginPath();
+                    ctx.arc(orb.x - 4, orb.y - 4, orb.size / 3, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+                    ctx.fill();
+                }
+            });
+
+            ctx.beginPath();
+            ctx.arc(player.x, player.y, player.size, 0, Math.PI * 2);
+            ctx.fillStyle = player.color;
+            ctx.shadowColor = '#14b8a6';
+            ctx.shadowBlur = 10;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath(); ctx.arc(player.x - 4, player.y - 3, 3, 0, Math.PI * 2); ctx.fill();
+            ctx.beginPath(); ctx.arc(player.x + 4, player.y - 3, 3, 0, Math.PI * 2); ctx.fill();
+        }
+
+        function triggerOrbModal(orb) {
+            isPaused = true;
+            const popup = document.getElementById('game-popup');
+            const badge = document.getElementById('popup-badge');
+            
+            badge.className = `text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 ${orb.badgeBg} text-white`;
+            badge.innerText = "Dimension Unlocked";
+            
+            document.getElementById('popup-title').innerText = orb.name;
+            document.getElementById('popup-desc').innerText = orb.desc;
+
+            popup.classList.remove('hidden');
+        }
+
+        function resumeGame() {
+            document.getElementById('game-popup').classList.add('hidden');
+            isPaused = false;
+
+            if (collectedCount === 6) {
+                setTimeout(() => {
+                    const popup = document.getElementById('game-popup');
+                    const badge = document.getElementById('popup-badge');
+                    badge.className = "text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 bg-teal-500 text-slate-950";
+                    badge.innerText = "Quest Complete!";
+                    document.getElementById('popup-title').innerText = "Self-Discovery Achieved 🎉";
+                    document.getElementById('popup-desc').innerText = "Congratulations! You have unpacked all 6 core dimensions of identity.";
+                    popup.classList.remove('hidden');
+                }, 300);
+            }
+        }
+
+        function gameLoop() {
+            updateGame();
+            drawGame();
+            requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+
+        // --- 7. CLINICAL ASSESSMENT LOGIC ---
+        function submitAssessment(e) {
+            e.preventDefault();
+            const form = e.target;
+            const q1 = parseInt(form.q1.value);
+            const q2 = parseInt(form.q2.value);
+            const q3 = parseInt(form.q3.value);
+            const q4 = parseInt(form.q4.value);
+            const q5 = parseInt(form.q5.value);
+
+            const totalScore = q1 + q2 + q3 + q4 + q5;
+            const maxScore = 13;
+
+            const resultDiv = document.getElementById('assessment-result');
+            const resultTitle = document.getElementById('assessment-title');
+            const resultText = document.getElementById('assessment-text');
+
+            if (totalScore >= 10) {
+                resultTitle.innerText = "Optimal Alignment & Resilience";
+                resultText.innerHTML = "Your assessment reflects strong self-efficacy, positive emotional coping, and healthy social-spiritual grounding. Maintain your supportive routines!";
+            } else if (totalScore >= 6) {
+                resultTitle.innerText = "Moderate Harmony";
+                resultText.innerHTML = "You demonstrate a stable foundation, but certain areas (such as stress management or physical habits) could benefit from intentional self-care routines.";
+            } else {
+                resultTitle.innerText = "Active Support & Growth Needed";
+                resultText.innerHTML = "Your answers indicate notable stress or misalignment across key dimensions. Consider engaging in mindfulness, adjusting daily habits, or reaching out to a support network.";
+            }
+
+            resultDiv.classList.remove('hidden');
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
