@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unpacking the Self | Learning Portal</title>
+    <!-- Tailwind CSS CDN with Dark Mode Support -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased selection:bg-teal-500 selection:text-white transition-colors duration-300">
+
+    <!-- NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 w-full z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 font-bold text-lg text-slate-900 dark:text-white">
+                <span class="w-8 h-8 bg-teal-600 text-white rounded-lg flex items-center justify-center font-extrabold text-sm">U</span>
+                <span>Unpacking<span class="text-teal-600 dark:text-teal-400">Self</span></span>
+            </a>
+            
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#home" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Home</a>
+                <a href="#about" class="hover:text-teal-600 dark:hover:text-teal-400 transition">About</a>
+                <a href="#dimensions" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Dimensions</a>
+                <a href="#infographic" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Infographic</a>
+                <a href="#video" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Video</a>
+                <a href="#quiz" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Self Check</a>
+                <a href="#team" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Our Team</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <!-- LIGHT / DARK MODE TOGGLE BUTTON -->
+                <button id="theme-toggle" onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" aria-label="Toggle Theme">
+                    <span id="theme-toggle-dark-icon" class="hidden">🌙</span>
+                    <span id="theme-toggle-light-icon" class="hidden">☀️</span>
+                </button>
+
+                <a href="#dimensions" class="hidden sm:inline-flex bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-sm transition">
+                    Start Exploring
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (STRETCHED & EXPANDABLE COVER GRAPHIC) -->
+    <section id="home" class="pt-28 pb-16 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5">
+                <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                    Educational Portal
+                </span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight mb-6">
+                    Discover Who You Are: <br/>
+                    <span class="text-teal-600 dark:text-teal-400">Unpacking the Self</span>
+                </h1>
+                <p class="text-slate-600 dark:text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
+                    An interactive guide to understanding the physical, emotional, intellectual, social, spiritual, and digital aspects that make up your unique human identity.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#dimensions" class="bg-teal-600 hover:bg-teal-700 text-white font-medium px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition">
+                        Explore Dimensions
+                    </a>
+                    <a href="#quiz" class="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium px-6 py-3 rounded-xl transition">
+                        Take Self Check
+                    </a>
+                </div>
+            </div>
+
+            <!-- HERO GRAPHIC CONTAINER -->
+            <div class="lg:col-span-7 bg-teal-50 dark:bg-slate-800/60 border border-teal-100 dark:border-slate-700 rounded-3xl p-3 sm:p-4 text-center shadow-md overflow-hidden group cursor-pointer relative" onclick="openModal('images/hero-graphic.jpg', 'Hero Graphic Banner')">
+                <img 
+                    src="images/hero-graphic.jpg" 
+                    alt="Understanding Identity" 
+                    class="w-full h-80 sm:h-[420px] object-cover rounded-2xl group-hover:scale-[1.02] transition duration-300"
+                    onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-16 text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-2xl font-medium\'>[Add images/hero-graphic.jpg]</div>';"
+                >
+                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-sm font-semibold rounded-3xl">
+                    🔍 Click to View Full Image
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="max-w-7xl mx-auto border-slate-200 dark:border-slate-800">
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">What is the Self?</h2>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                The "Self" refers to a person's essential being—the distinct combination of psychological, physical, and social qualities that make a person who they are.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="w-10 h-10 bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 rounded-xl flex items-center justify-center font-bold mb-4">01</div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Self-Awareness</h3>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Recognizing your strengths, limitations, emotions, and values forms the baseline for personal growth.</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="w-10 h-10 bg-teal-100 dark:bg-teal-950 text-teal-600 dark:text-teal-400 rounded-xl flex items-center justify-center font-bold mb-4">02</div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Holistic Growth</h3>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Understanding that you are made of multiple interconnected aspects—from your physical health to online behavior.</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="w-10 h-10 bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-400 rounded-xl flex items-center justify-center font-bold mb-4">03</div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Social Connection</h3>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Learning how your inner self interacts with communities, relationships, and digital spaces around you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 DIMENSIONS OF THE SELF -->
+    <section id="dimensions" class="py-20 px-6 bg-slate-100/70 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">The 6 Dimensions of the Self</h2>
+                <p class="text-slate-600 dark:text-slate-300">Educational concepts alongside practical daily life scenarios.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Physical Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 mb-4">Body & Health</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Physical Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Biological processes, body image, nutrition, and wellness.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Choosing to get 8 hours of sleep before an exam rather than pulling an all-nighter.
+                    </div>
+                </div>
+
+                <!-- Emotional Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 mb-4">Feelings & Moods</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Emotional Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Understanding, expressing, and regulating emotions.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Taking a deep breath and stepping away for a minute when feeling overwhelmed by schoolwork.
+                    </div>
+                </div>
+
+                <!-- Intellectual Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 mb-4">Mind & Thoughts</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Intellectual Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Critical thinking, problem-solving, and curiosity.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Reading articles about new technology or solving logic puzzles to challenge your brain.
+                    </div>
+                </div>
+
+                <!-- Social Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 mb-4">Relationships</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Social Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Interactions with family, friends, culture, and society.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Collaborating effectively in group projects and respecting cultural differences.
+                    </div>
+                </div>
+
+                <!-- Spiritual Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 mb-4">Purpose & Values</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Spiritual Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Personal ethics, inner peace, and life purpose.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Practicing daily mindfulness meditation and acting with integrity in difficult choices.
+                    </div>
+                </div>
+
+                <!-- Digital Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 mb-4">Online Identity</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Digital Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Persona, etiquette, and footprint across social media.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Setting screen-time boundaries on apps and maintaining privacy online.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFOGRAPHIC SECTION (EXPANDABLE & FULL WIDTH) -->
+    <section id="infographic" class="py-20 px-6 max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Visual Summary Infographic</h2>
+        <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">An overview illustrating how the 6 dimensions interlock to form your identity. (Click image for full-screen view)</p>
+        
+        <div class="bg-white dark:bg-slate-800 p-4 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-md group cursor-pointer relative" onclick="openModal('images/infographic.jpg', 'Visual Summary Infographic')">
+            <img 
+                src="images/infographic.jpg" 
+                alt="Unpacking the Self Infographic" 
+                class="w-full h-auto rounded-2xl object-cover group-hover:scale-[1.01] transition duration-300"
+                onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-16 text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 font-medium\'>[Add images/infographic.jpg]</div>';"
+            >
+            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-sm font-semibold rounded-3xl">
+                🔍 Click to Expand Full Screen
+            </div>
+        </div>
+    </section>
+
+    <!-- EMBEDDED YOUTUBE VIDEO SECTION -->
+    <section id="video" class="py-20 px-6 max-w-4xl mx-auto text-center border-t border-slate-200 dark:border-slate-800">
+        <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+            Group Presentation
+        </span>
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Team Reflection Video</h2>
+        <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+            Watch our group explore and reflect on the major dimensions of the self.
+        </p>
+        
+        <!-- YOUTUBE EMBED CONTAINER -->
+        <div class="relative w-full overflow-hidden rounded-3xl shadow-xl border border-slate-200 dark:border-slate-800 bg-black" style="padding-top: 56.25%;">
+            <iframe 
+                class="absolute top-0 left-0 w-full h-full" 
+                src="https://www.youtube.com/embed/5lo3c5u73vw" 
+                title="Unpacking the Self Presentation Video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SELF-REFLECTION WIDGET -->
+    <section id="quiz" class="py-20 px-6 max-w-4xl mx-auto">
+        <div class="bg-gradient-to-r from-teal-600 to-slate-800 dark:from-teal-800 dark:to-slate-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-3">Interactive Reflection Check</h2>
+            <p class="text-teal-100 text-sm sm:text-base mb-8">Click a focus area below to reveal a self-reflection prompt for today:</p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+                <button onclick="showPrompt('physical')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Physical</button>
+                <button onclick="showPrompt('emotional')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Emotional</button>
+                <button onclick="showPrompt('intellectual')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Intellectual</button>
+                <button onclick="showPrompt('social')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Social</button>
+                <button onclick="showPrompt('spiritual')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Spiritual</button>
+                <button onclick="showPrompt('digital')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Digital</button>
+            </div>
+
+            <div id="reflection-output" class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl min-h-[100px] flex items-center justify-center text-center italic text-teal-50">
+                Select a dimension above to start your self-reflection.
+            </div>
+        </div>
+    </section>
+
+    <!-- EXTRA VISUAL DIAGRAM SECTION (IMAGE: images/reflection-diagram.jpg) -->
+    <section class="py-12 px-6 max-w-5xl mx-auto text-center">
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm group cursor-pointer relative" onclick="openModal('images/reflection-diagram.jpg', 'Framework Diagram')">
+            <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-2">Holistic Reflection Framework</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">How our internal self balances with external environments. (Click to expand)</p>
+            <img 
+                src="images/reflection-diagram.jpg" 
+                alt="Reflection Framework Diagram" 
+                class="w-full max-h-80 object-contain mx-auto rounded-xl group-hover:scale-105 transition duration-300"
+                onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-8 text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-900 rounded-xl\'>[Add images/reflection-diagram.jpg]</div>';"
+            >
+            <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-xs font-semibold rounded-3xl">
+                🔍 Click to Expand
+            </div>
+        </div>
+    </section>
+
+    <!-- MEET THE CREATORS: SLIDESHOW (17 MEMBERS) -->
+    <section id="team" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Meet the Creators</h2>
+            <p class="text-slate-600 dark:text-slate-300 text-sm">The 17 members behind this learning portal. (Click any photo for full-screen zoom)</p>
+        </div>
+
+        <!-- EXPANDED SLIDESHOW CONTAINER -->
+        <div class="relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 sm:p-12 shadow-xl max-w-2xl mx-auto text-center">
+            
+            <!-- CURRENT SLIDE DISPLAY -->
+            <div id="slideshow-content" class="transition-all duration-300">
+                <!-- ENLARGED MEMBER AVATAR -->
+                <div class="relative inline-block group cursor-pointer mb-6" onclick="expandCurrentMember()">
+                    <img id="slide-img" src="images/member1.jpg" alt="Brynn Bonghanoy Pros" class="w-56 h-56 sm:w-72 sm:h-72 rounded-full mx-auto border-4 border-teal-500 object-cover shadow-lg group-hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/300?text=Member+Photo';">
+                    <div class="absolute inset-0 bg-slate-900/40 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-sm font-semibold">
+                        🔍 Click to Zoom
+                    </div>
+                </div>
+                
+                <h3 id="slide-name" class="font-bold text-slate-900 dark:text-white text-2xl mb-2">Brynn Bonghanoy Pros</h3>
+                <span id="slide-number" class="inline-block bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 text-xs font-semibold px-4 py-1.5 rounded-full border border-teal-200 dark:border-teal-800">
+                    Member 1 of 17
+                </span>
+            </div>
+
+            <!-- NAVIGATION BUTTONS -->
+            <button onclick="prevSlide()" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 bg-slate-100 dark:bg-slate-700 hover:bg-teal-600 hover:text-white dark:hover:bg-teal-500 text-slate-700 dark:text-slate-200 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition font-bold text-2xl z-10" aria-label="Previous Slide">
+                ‹
+            </button>
+            <button onclick="nextSlide()" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 bg-slate-100 dark:bg-slate-700 hover:bg-teal-600 hover:text-white dark:hover:bg-teal-500 text-slate-700 dark:text-slate-200 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition font-bold text-2xl z-10" aria-label="Next Slide">
+                ›
+            </button>
+
+            <!-- SLIDE DOTS INDICATORS -->
+            <div id="slide-dots" class="flex justify-center gap-2 mt-8 flex-wrap">
+                <!-- Dots generated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & REFERENCES -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 text-sm">
+            <div>
+                <h4 class="text-white font-bold mb-3">Unpacking the Self</h4>
+                <p class="text-xs leading-relaxed max-w-sm mb-4">
+                    A simple educational project created to demonstrate technical web development and course mastery in Understanding the Self.
+                </p>
+                <p class="text-xs text-slate-500">&copy; Academic Team Project. All rights reserved.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Course References</h4>
+                <ul class="text-xs space-y-2 text-slate-400">
+                    <li>• Academic Course Material: Understanding the Self</li>
+                    <li>• General Psychology Concepts & Dimensions of Identity</li>
+                    <li>• Tailwind CSS Framework Documentation</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FULL SCREEN IMAGE EXPANSION MODAL -->
+    <div id="image-modal" class="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeModal()">
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-3xl font-bold bg-white/10 hover:bg-white/20 w-12 h-12 rounded-full flex items-center justify-center transition">
+            &times;
+        </button>
+        <div class="max-w-5xl max-h-[90vh] text-center" onclick="event.stopPropagation()">
+            <img id="modal-img" src="" alt="Expanded View" class="max-w-full max-h-[80vh] rounded-2xl mx-auto shadow-2xl object-contain border border-white/20">
+            <p id="modal-caption" class="text-white font-bold text-xl mt-4"></p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. LIGHT / DARK MODE TOGGLE LOGIC ---
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+            }
+        }
+
+        // --- 2. REFLECTION WIDGET LOGIC ---
+        const prompts = {
+            physical: "Reflection Question: What is one habit you can adopt today to give your body better rest or care?",
+            emotional: "Reflection Question: How did you handle stress today, and what emotion did you feel most clearly?",
+            intellectual: "Reflection Question: What new skill, concept, or idea sparked your interest this week?",
+            social: "Reflection Question: Who is one person in your life you can reach out to with appreciation today?",
+            spiritual: "Reflection Question: What core value guided your decisions today?",
+            digital: "Reflection Question: How much screen time did you spend today, and was it meaningful or distracting?"
+        };
+
+        function showPrompt(type) {
+            const outputDiv = document.getElementById('reflection-output');
+            outputDiv.innerHTML = `<p class="text-white font-medium">${prompts[type]}</p>`;
+        }
+
+        // --- 3. IMAGE MODAL LOGIC ---
+        function openModal(imageSrc, captionText) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalCaption = document.getElementById('modal-caption');
+            
+            modalImg.src = imageSrc;
+            modalCaption.innerText = captionText;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('image-modal').classList.add('hidden');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // --- 4. TEAM MEMBERS SLIDESHOW LOGIC (17 MEMBERS) ---
+        const teamMembers = [
+            { name: "Brynn Bonghanoy Pros", img: "images/member1.jpg" },
+            { name: "Leslie Ann Murillo", img: "images/member2.jpg" },
+            { name: "Pionie Mae dela Serna", img: "images/member3.jpg" },
+            { name: "Mary Jane Tenegra", img: "images/member4.jpg" },
+            { name: "Art Kenly Bayhon", img: "images/member5.jpg" },
+            { name: "Celney Miramonte", img: "images/member6.jpg" },
+            { name: "Rica Jane Calapiz", img: "images/member7.jpg" },
+            { name: "Khen Charles Amit", img: "images/member8.jpg" },
+            { name: "Carl Vincent Eurolfan", img: "images/member9.jpg" },
+            { name: "Neptune Fidel Bustillo", img: "images/member10.jpg" },
+            { name: "Jared Ramirez", img: "images/member11.jpg" },
+            { name: "Kettalyn Rose Reyes", img: "images/member12.jpg" },
+            { name: "John Rey Galero", img: "images/member13.jpg" },
+            { name: "John Kyle Gocela", img: "images/member14.jpg" },
+            { name: "Jay-yann Gesulga", img: "images/member15.jpg" },
+            { name: "Regie Mae Segovia", img: "images/member16.jpg" },
+            { name: "Member 17 Name", img: "images/member17.jpg" }
+        ];
+
+        let currentSlide = 0;
+
+        function updateSlide() {
+            const member = teamMembers[currentSlide];
+            document.getElementById('slide-img').src = member.img;
+            document.getElementById('slide-name').innerText = member.name;
+            document.getElementById('slide-number').innerText = `Member ${currentSlide + 1} of ${teamMembers.length}`;
+
+            // Update Dots
+            const dotsContainer = document.getElementById('slide-dots');
+            dotsContainer.innerHTML = '';
+            teamMembers.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = `w-2.5 h-2.5 rounded-full transition ${idx === currentSlide ? 'bg-teal-600 w-6' : 'bg-slate-300 dark:bg-slate-600'}`;
+                dot.onclick = () => { currentSlide = idx; updateSlide(); };
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % teamMembers.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + teamMembers.length) % teamMembers.length;
+            updateSlide();
+        }
+
+        function expandCurrentMember() {
+            const member = teamMembers[currentSlide];
+            openModal(member.img, member.name);
+        }
+
+        // Auto Play Slideshow every 4 seconds
+        setInterval(nextSlide, 4000);
+
+        // Initialize Slideshow on Load
+        updateSlide();
+    </script>
+</body>
+</html>
