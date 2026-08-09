@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unpacking the Self | Learning Portal</title>
+    <!-- Tailwind CSS CDN with Dark Mode Support -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- EmailJS SDK Integration -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("EotDZSUaV9KkxNL20");
+        })();
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased selection:bg-teal-500 selection:text-white transition-colors duration-300 relative">
+
+    <!-- NAVIGATION BAR -->
+    <header class="fixed top-0 left-0 w-full z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 font-bold text-lg text-slate-900 dark:text-white">
+                <span class="w-8 h-8 bg-teal-600 text-white rounded-lg flex items-center justify-center font-extrabold text-sm">U</span>
+                <span>Unpacking<span class="text-teal-600 dark:text-teal-400">Self</span></span>
+            </a>
+            
+            <nav class="hidden lg:flex gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#home" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Home</a>
+                <a href="#instructor" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Instructor</a>
+                <a href="#spotlight" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Spotlights</a>
+                <a href="#about" class="hover:text-teal-600 dark:hover:text-teal-400 transition">About</a>
+                <a href="#dimensions" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Dimensions</a>
+                <a href="#game" class="hover:text-teal-600 dark:hover:text-teal-400 transition">2D Quest</a>
+                <a href="#self-rating-game" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Scorecard</a>
+                <a href="#assessment" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Assessment</a>
+                <a href="#team" class="hover:text-teal-600 dark:hover:text-teal-400 transition">Our Team</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" aria-label="Toggle Theme">
+                    <span id="theme-toggle-dark-icon" class="hidden">🌙</span>
+                    <span id="theme-toggle-light-icon" class="hidden">☀️</span>
+                </button>
+
+                <a href="#assessment" class="hidden sm:inline-flex bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow-sm transition">
+                    Take Assessment
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="pt-28 pb-16 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5">
+                <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                    Educational Portal
+                </span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight mb-6">
+                    Discover Who You Are: <br/>
+                    <span class="text-teal-600 dark:text-teal-400">Unpacking the Self</span>
+                </h1>
+                <p class="text-slate-600 dark:text-slate-300 text-base sm:text-lg mb-8 leading-relaxed">
+                    An interactive guide to understanding the physical, emotional, intellectual, social, spiritual, and digital aspects that make up your unique human identity.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#assessment" class="bg-teal-600 hover:bg-teal-700 text-white font-medium px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition">
+                        Clinical Assessment 📋
+                    </a>
+                    <a href="#game" class="bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium px-6 py-3 rounded-xl transition">
+                        Play 2D Quest 🎮
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 bg-teal-50 dark:bg-slate-800/60 border border-teal-100 dark:border-slate-700 rounded-3xl p-3 sm:p-4 text-center shadow-md overflow-hidden group cursor-pointer relative" onclick="openModal('./images/hero-graphic.jpg', 'Hero Graphic Banner')">
+                <img 
+                    src="./images/hero-graphic.jpg" 
+                    alt="Understanding Identity" 
+                    class="w-full h-80 sm:h-[420px] object-cover rounded-2xl group-hover:scale-[1.02] transition duration-300"
+                    onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/ffffff?text=hero-graphic.jpg+Missing';"
+                >
+                <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-sm font-semibold rounded-3xl">
+                    🔍 Click to View Full Image
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="max-w-7xl mx-auto border-slate-200 dark:border-slate-800">
+
+    <!-- INSTRUCTOR SECTION -->
+    <section id="instructor" class="py-16 px-6 max-w-5xl mx-auto">
+        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 sm:p-10 shadow-lg flex flex-col sm:flex-row items-center gap-8">
+            <div class="shrink-0 relative group cursor-pointer" onclick="openModal('./images/instructor.jpg', 'Vernel Vergel Otara Sagarino')">
+                <img src="./images/instructor.jpg" alt="Vernel Vergel Otara Sagarino" class="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl object-cover border-4 border-teal-500 shadow-md group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0d9488/ffffff?text=instructor.jpg';">
+                <div class="absolute inset-0 bg-slate-900/30 rounded-2xl opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-semibold">🔍 View</div>
+            </div>
+            <div class="text-center sm:text-left">
+                <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    Course Instructor & Advisor
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-2">Vernel Vergel Otara Sagarino</h2>
+                <p class="text-teal-600 dark:text-teal-400 font-medium text-sm mb-4">Faculty Member, Understanding the Self Course</p>
+                <blockquote class="italic text-slate-600 dark:text-slate-300 text-sm leading-relaxed bg-slate-50 dark:bg-slate-900/60 p-4 rounded-xl border-l-4 border-teal-500">
+                    "Self-discovery is not about finding a new version of yourself, but unpacking the unique layers of who you have always been. Through introspection, balance across all dimensions, and open inquiry, we foster true personal growth."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- 18-MEMBER REFLECTION SPOTLIGHT CAROUSEL SECTION -->
+    <section id="spotlight" class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="relative bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
+            <div class="grid lg:grid-cols-12 items-stretch min-h-[480px]">
+                <div class="lg:col-span-7 p-8 sm:p-12 lg:p-16 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-teal-400 text-xs sm:text-sm font-bold uppercase tracking-widest">
+                                Member Reflection Spotlight
+                            </span>
+                            <span id="spotlight-counter" class="bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold px-3 py-1 rounded-full">
+                                Reflection 1 of 18
+                            </span>
+                        </div>
+                        <h2 id="spotlight-headline" class="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-none mb-6">
+                            BE AUTHENTIC.<br/>
+                            BE MINDFUL.<br/>
+                            <span class="text-teal-400">BE YOU.</span>
+                        </h2>
+                        <blockquote id="spotlight-quote" class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 italic">
+                            "Unpacking the self taught me that growth isn't about fitting into external expectations. It is about understanding how my emotional, physical, and digital choices shape my inner identity."
+                        </blockquote>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-800 mb-6">
+                            <div id="spotlight-avatar-initial" class="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center font-bold text-slate-950 text-sm">
+                                B
+                            </div>
+                            <div>
+                                <h4 id="spotlight-author" class="font-bold text-white text-sm">Brynn Bonghanoy Pros</h4>
+                                <p id="spotlight-role" class="text-xs text-teal-400">Lead Creator</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <button onclick="prevSpotlight()" class="bg-slate-800 hover:bg-teal-600 text-white w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg transition border border-slate-700" aria-label="Previous Reflection">
+                                ‹
+                            </button>
+                            <button onclick="nextSpotlight()" class="bg-slate-800 hover:bg-teal-600 text-white w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg transition border border-slate-700" aria-label="Next Reflection">
+                                ›
+                            </button>
+                            <span class="text-xs text-slate-400 ml-2">Use arrows to browse all 18 reflections</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative min-h-[350px] lg:min-h-full bg-slate-950 cursor-pointer group" onclick="expandSpotlightImage()">
+                    <img 
+                        id="spotlight-img"
+                        src="./images/member1.jpg" 
+                        alt="Member Reflection Picture" 
+                        class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x800/0f172a/ffffff?text=Member+Photo';"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-900 via-transparent to-transparent opacity-80 lg:opacity-50"></div>
+                    <div class="absolute bottom-4 right-4 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-semibold text-white border border-white/10 group-hover:bg-teal-600 transition">
+                        🔍 Click to Zoom
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 px-6 max-w-7xl mx-auto border-t border-slate-200 dark:border-slate-800">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">What is the Self?</h2>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                The "Self" refers to a person's essential being—the distinct combination of psychological, physical, and social qualities that make a person who they are.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="w-10 h-10 bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 rounded-xl flex items-center justify-center font-bold mb-4">01</div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Self-Awareness</h3>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Recognizing your strengths, limitations, emotions, and values forms the baseline for personal growth.</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="w-10 h-10 bg-teal-100 dark:bg-teal-950 text-teal-600 dark:text-teal-400 rounded-xl flex items-center justify-center font-bold mb-4">02</div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Holistic Growth</h3>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Understanding that you are made of multiple interconnected aspects—from your physical health to online behavior.</p>
+            </div>
+
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="w-10 h-10 bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-400 rounded-xl flex items-center justify-center font-bold mb-4">03</div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg mb-2">Social Connection</h3>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">Learning how your inner self interacts with communities, relationships, and digital spaces around you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 DIMENSIONS OF THE SELF -->
+    <section id="dimensions" class="py-20 px-6 bg-slate-100/70 dark:bg-slate-800/40 border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">The 6 Dimensions of the Self</h2>
+                <p class="text-slate-600 dark:text-slate-300">Educational concepts alongside practical daily life scenarios.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Physical Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 mb-4">Body & Health</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Physical Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Biological processes, body image, nutrition, and wellness.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Choosing to get 8 hours of sleep before an exam rather than pulling an all-nighter.
+                    </div>
+                </div>
+
+                <!-- Emotional Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300 mb-4">Feelings & Moods</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Emotional Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Understanding, expressing, and regulating emotions.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Taking a deep breath and stepping away for a minute when feeling overwhelmed by schoolwork.
+                    </div>
+                </div>
+
+                <!-- Intellectual Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 mb-4">Mind & Thoughts</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Intellectual Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Critical thinking, problem-solving, and curiosity.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Reading articles about new technology or solving logic puzzles to challenge your brain.
+                    </div>
+                </div>
+
+                <!-- Social Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 mb-4">Relationships</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Social Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Interactions with family, friends, culture, and society.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Collaborating effectively in group projects and respecting cultural differences.
+                    </div>
+                </div>
+
+                <!-- Spiritual Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 mb-4">Purpose & Values</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Spiritual Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Personal ethics, inner peace, and life purpose.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Practicing daily mindfulness meditation and acting with integrity in difficult choices.
+                    </div>
+                </div>
+
+                <!-- Digital Self -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:-translate-y-1 transition">
+                    <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-md bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 mb-4">Online Identity</span>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Digital Self</h3>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-4 leading-relaxed"><strong>Concept:</strong> Persona, etiquette, and footprint across social media.</p>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg text-xs text-slate-600 dark:text-slate-400">
+                        <strong>Daily Life Scenario:</strong> Setting screen-time boundaries on apps and maintaining privacy online.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFOGRAPHIC SECTION -->
+    <section id="infographic" class="py-20 px-6 max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Visual Summary Infographic</h2>
+        <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">An overview illustrating how the 6 dimensions interlock to form your identity. (Click image for full-screen view)</p>
+        
+        <div class="bg-white dark:bg-slate-800 p-4 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-md group cursor-pointer relative" onclick="openModal('./images/infographic.jpg', 'Visual Summary Infographic')">
+            <img 
+                src="./images/infographic.jpg" 
+                alt="Unpacking the Self Infographic" 
+                class="w-full h-auto rounded-2xl object-cover group-hover:scale-[1.01] transition duration-300"
+                onerror="this.onerror=null; this.src='https://placehold.co/1000x1200/0f172a/ffffff?text=infographic.jpg+Missing';"
+            >
+            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-sm font-semibold rounded-3xl">
+                🔍 Click to Expand Full Screen
+            </div>
+        </div>
+    </section>
+
+    <!-- EMBEDDED YOUTUBE VIDEO SECTION -->
+    <section id="video" class="py-20 px-6 max-w-4xl mx-auto text-center border-t border-slate-200 dark:border-slate-800">
+        <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+            Group Presentation
+        </span>
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Team Reflection Video</h2>
+        <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
+            Watch our group explore and reflect on the major dimensions of the self.
+        </p>
+        
+        <div class="relative w-full overflow-hidden rounded-3xl shadow-xl border border-slate-200 dark:border-slate-800 bg-black" style="padding-top: 56.25%;">
+            <iframe 
+                class="absolute top-0 left-0 w-full h-full" 
+                src="https://www.youtube.com/embed/5lo3c5u73vw" 
+                title="Unpacking the Self Presentation Video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE 2D EXPLORATION MINI-GAME -->
+    <section id="game" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-10 shadow-xl text-center">
+            <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                Interactive Quest
+            </span>
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Unpack the Self: 2D Quest</h2>
+            <p class="text-slate-600 dark:text-slate-300 text-sm mb-6 max-w-xl mx-auto">
+                Move your avatar using <strong>WASD / Arrow Keys</strong> or the on-screen controls to collect all 6 Dimension Orbs and complete your self-discovery!
+            </p>
+
+            <div class="relative w-full max-w-2xl mx-auto aspect-[16/10] bg-slate-900 rounded-2xl overflow-hidden border-2 border-slate-700 shadow-inner">
+                <canvas id="gameCanvas" width="640" height="400" class="w-full h-full block"></canvas>
+                
+                <div id="game-popup" class="absolute inset-0 bg-slate-950/85 backdrop-blur-sm hidden flex flex-col items-center justify-center p-6 text-white text-center transition-all">
+                    <span id="popup-badge" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2"></span>
+                    <h3 id="popup-title" class="text-2xl font-extrabold mb-2"></h3>
+                    <p id="popup-desc" class="text-sm text-slate-200 max-w-md mb-6 leading-relaxed"></p>
+                    <button onclick="resumeGame()" class="bg-teal-500 hover:bg-teal-600 text-slate-950 font-bold px-6 py-2.5 rounded-xl transition shadow-lg">
+                        Continue Quest ➔
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-6 max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="w-full sm:w-auto text-left flex-1">
+                    <div class="flex justify-between text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
+                        <span>Identity Orbs Collected</span>
+                        <span id="orb-count" class="text-teal-600 dark:text-teal-400 font-bold">0 / 6</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-3 rounded-full overflow-hidden">
+                        <div id="orb-bar" class="bg-teal-500 h-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-1 w-32 shrink-0">
+                    <div></div>
+                    <button onpointerdown="movePlayer('up')" class="bg-slate-200 dark:bg-slate-700 hover:bg-teal-600 hover:text-white p-2 rounded-lg font-bold text-sm">▲</button>
+                    <div></div>
+                    <button onpointerdown="movePlayer('left')" class="bg-slate-200 dark:bg-slate-700 hover:bg-teal-600 hover:text-white p-2 rounded-lg font-bold text-sm">◀</button>
+                    <button onpointerdown="movePlayer('down')" class="bg-slate-200 dark:bg-slate-700 hover:bg-teal-600 hover:text-white p-2 rounded-lg font-bold text-sm">▼</button>
+                    <button onpointerdown="movePlayer('right')" class="bg-slate-200 dark:bg-slate-700 hover:bg-teal-600 hover:text-white p-2 rounded-lg font-bold text-sm">▶</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SELF-RATING GAME SECTION -->
+    <section id="self-rating-game" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-8 sm:p-12 shadow-xl">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    Interactive Audit
+                </span>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Self-Dimension Scorecard</h2>
+                <p class="text-slate-600 dark:text-slate-300 text-sm">
+                    Rate how balanced and fulfilled you feel in each dimension on a scale of 1 to 10.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-10">
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="font-semibold text-sm text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Physical Self
+                        </label>
+                        <span id="val-physical" class="text-sm font-bold text-teal-600 dark:text-teal-400">7/10</span>
+                    </div>
+                    <input type="range" id="rate-physical" min="1" max="10" value="7" class="w-full accent-teal-600 cursor-pointer" oninput="updateScores()">
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="font-semibold text-sm text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Emotional Self
+                        </label>
+                        <span id="val-emotional" class="text-sm font-bold text-teal-600 dark:text-teal-400">7/10</span>
+                    </div>
+                    <input type="range" id="rate-emotional" min="1" max="10" value="7" class="w-full accent-teal-600 cursor-pointer" oninput="updateScores()">
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="font-semibold text-sm text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> Intellectual Self
+                        </label>
+                        <span id="val-intellectual" class="text-sm font-bold text-teal-600 dark:text-teal-400">7/10</span>
+                    </div>
+                    <input type="range" id="rate-intellectual" min="1" max="10" value="7" class="w-full accent-teal-600 cursor-pointer" oninput="updateScores()">
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="font-semibold text-sm text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Social Self
+                        </label>
+                        <span id="val-social" class="text-sm font-bold text-teal-600 dark:text-teal-400">7/10</span>
+                    </div>
+                    <input type="range" id="rate-social" min="1" max="10" value="7" class="w-full accent-teal-600 cursor-pointer" oninput="updateScores()">
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="font-semibold text-sm text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Spiritual Self
+                        </label>
+                        <span id="val-spiritual" class="text-sm font-bold text-teal-600 dark:text-teal-400">7/10</span>
+                    </div>
+                    <input type="range" id="rate-spiritual" min="1" max="10" value="7" class="w-full accent-teal-600 cursor-pointer" oninput="updateScores()">
+                </div>
+
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="font-semibold text-sm text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span> Digital Self
+                        </label>
+                        <span id="val-digital" class="text-sm font-bold text-teal-600 dark:text-teal-400">7/10</span>
+                    </div>
+                    <input type="range" id="rate-digital" min="1" max="10" value="7" class="w-full accent-teal-600 cursor-pointer" oninput="updateScores()">
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-teal-600 to-slate-800 dark:from-teal-800 dark:to-slate-900 rounded-2xl p-6 text-white text-center">
+                <p class="text-xs font-semibold uppercase tracking-wider text-teal-200 mb-1">Overall Balance Score</p>
+                <div id="overall-score" class="text-4xl font-extrabold mb-3">70%</div>
+                <p id="score-analysis" class="text-sm text-slate-100 max-w-xl mx-auto leading-relaxed">
+                    Adjust the sliders to reflect your current personal wellbeing and see your tailored growth focus.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLINICAL SELF-ASSESSMENT FORM SECTION -->
+    <section id="assessment" class="py-20 px-6 max-w-4xl mx-auto border-t border-slate-200 dark:border-slate-800">
+        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 sm:p-12 shadow-xl">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    Self-Check Questionnaire
+                </span>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Clinical Self-Assessment</h2>
+                <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                    Answer these 5 reflective diagnostic questions to evaluate your current psychological and holistic alignment.
+                </p>
+            </div>
+
+            <form id="clinical-form" onsubmit="submitAssessment(event)" class="space-y-8">
+                <!-- Question 1 -->
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <label class="block font-semibold text-slate-900 dark:text-white text-sm mb-3">
+                        1. How frequently have you felt overwhelmed by emotional stress over the past month?
+                    </label>
+                    <div class="grid sm:grid-cols-4 gap-3">
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q1" value="0" required class="accent-teal-600"> Never / Rarely
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q1" value="1" class="accent-teal-600"> Sometimes
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q1" value="2" class="accent-teal-600"> Often
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q1" value="3" class="accent-teal-600"> Almost Always
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <label class="block font-semibold text-slate-900 dark:text-white text-sm mb-3">
+                        2. Do you feel your physical habits (sleep, exercise, diet) adequately support your daily activities?
+                    </label>
+                    <div class="grid sm:grid-cols-4 gap-3">
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q2" value="3" required class="accent-teal-600"> Fully Support
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q2" value="2" class="accent-teal-600"> Mostly Support
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q2" value="1" class="accent-teal-600"> Inconsistent
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q2" value="0" class="accent-teal-600"> Severely Lacking
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <label class="block font-semibold text-slate-900 dark:text-white text-sm mb-3">
+                        3. How aligned do you feel with your core ethical values and life purpose?
+                    </label>
+                    <div class="grid sm:grid-cols-4 gap-3">
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q3" value="3" required class="accent-teal-600"> Strongly Aligned
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q3" value="2" class="accent-teal-600"> Moderately
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q3" value="1" class="accent-teal-600"> Slightly Confused
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q3" value="0" class="accent-teal-600"> Disconnected
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <label class="block font-semibold text-slate-900 dark:text-white text-sm mb-3">
+                        4. Does your digital footprint and social media activity reflect your authentic true self?
+                    </label>
+                    <div class="grid sm:grid-cols-3 gap-3">
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q4" value="2" required class="accent-teal-600"> Yes, completely authentic
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q4" value="1" class="accent-teal-600"> Partially curated persona
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q4" value="0" class="accent-teal-600"> Entirely artificial identity
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="bg-slate-50 dark:bg-slate-900/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700/60">
+                    <label class="block font-semibold text-slate-900 dark:text-white text-sm mb-3">
+                        5. How supported do you feel by your social circle and interpersonal relationships?
+                    </label>
+                    <div class="grid sm:grid-cols-3 gap-3">
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q5" value="2" required class="accent-teal-600"> Strongly Supported
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q5" value="1" class="accent-teal-600"> Somewhat Supported
+                        </label>
+                        <label class="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 cursor-pointer hover:border-teal-500">
+                            <input type="radio" name="q5" value="0" class="accent-teal-600"> Isolated
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg transition duration-200">
+                        Submit Assessment ➔
+                    </button>
+                </div>
+            </form>
+
+            <div id="assessment-result" class="hidden mt-8 p-6 bg-teal-50 dark:bg-slate-900 border border-teal-200 dark:border-teal-800 rounded-2xl text-center">
+                <span class="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 bg-teal-100 dark:bg-teal-950 px-3 py-1 rounded-full inline-block mb-3">Diagnostic Summary</span>
+                <h3 id="assessment-title" class="text-2xl font-bold text-slate-900 dark:text-white mb-2"></h3>
+                <p id="assessment-text" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl mx-auto"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SELF-REFLECTION WIDGET -->
+    <section id="quiz" class="py-20 px-6 max-w-4xl mx-auto">
+        <div class="bg-gradient-to-r from-teal-600 to-slate-800 dark:from-teal-800 dark:to-slate-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-3">Interactive Reflection Check</h2>
+            <p class="text-teal-100 text-sm sm:text-base mb-8">Click a focus area below to reveal a self-reflection prompt for today:</p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+                <button onclick="showPrompt('physical')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Physical</button>
+                <button onclick="showPrompt('emotional')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Emotional</button>
+                <button onclick="showPrompt('intellectual')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Intellectual</button>
+                <button onclick="showPrompt('social')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Social</button>
+                <button onclick="showPrompt('spiritual')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Spiritual</button>
+                <button onclick="showPrompt('digital')" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl py-3 text-sm font-medium transition">Digital</button>
+            </div>
+
+            <div id="reflection-output" class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 rounded-2xl min-h-[100px] flex items-center justify-center text-center italic text-teal-50">
+                Select a dimension above to start your self-reflection.
+            </div>
+        </div>
+    </section>
+
+    <!-- EXTRA VISUAL DIAGRAM SECTION -->
+    <section class="py-12 px-6 max-w-5xl mx-auto text-center">
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm group cursor-pointer relative" onclick="openModal('./images/reflection-diagram.jpg', 'Framework Diagram')">
+            <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-2">Holistic Reflection Framework</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">How our internal self balances with external environments. (Click to expand)</p>
+            <img 
+                src="./images/reflection-diagram.jpg" 
+                alt="Reflection Framework Diagram" 
+                class="w-full max-h-80 object-contain mx-auto rounded-xl group-hover:scale-105 transition duration-300"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x400/0f172a/ffffff?text=reflection-diagram.jpg+Missing';"
+            >
+            <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-xs font-semibold rounded-3xl">
+                🔍 Click to Expand
+            </div>
+        </div>
+    </section>
+
+    <!-- MEET THE CREATORS: SLIDESHOW (18 MEMBERS) -->
+    <section id="team" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Meet the Creators</h2>
+            <p class="text-slate-600 dark:text-slate-300 text-sm">The 18 members behind this learning portal. (Click any photo for full-screen zoom)</p>
+        </div>
+
+        <div class="relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 sm:p-12 shadow-xl max-w-2xl mx-auto text-center">
+            <div id="slideshow-content" class="transition-all duration-300">
+                <div class="relative inline-block group cursor-pointer mb-6" onclick="expandCurrentMember()">
+                    <img id="slide-img" src="./images/member1.jpg" alt="Brynn Bonghanoy Pros" class="w-56 h-56 sm:w-72 sm:h-72 rounded-full mx-auto border-4 border-teal-500 object-cover shadow-lg group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/300x300/0f172a/ffffff?text=Member+Photo';">
+                    <div class="absolute inset-0 bg-slate-900/40 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-sm font-semibold">
+                        🔍 Click to Zoom
+                    </div>
+                </div>
+                
+                <h3 id="slide-name" class="font-bold text-slate-900 dark:text-white text-2xl mb-2">Brynn Bonghanoy Pros</h3>
+                <span id="slide-number" class="inline-block bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 text-xs font-semibold px-4 py-1.5 rounded-full border border-teal-200 dark:border-teal-800">
+                    Member 1 of 18
+                </span>
+            </div>
+
+            <button onclick="prevSlide()" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 bg-slate-100 dark:bg-slate-700 hover:bg-teal-600 hover:text-white dark:hover:bg-teal-500 text-slate-700 dark:text-slate-200 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition font-bold text-2xl z-10" aria-label="Previous Slide">
+                ‹
+            </button>
+            <button onclick="nextSlide()" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 bg-slate-100 dark:bg-slate-700 hover:bg-teal-600 hover:text-white dark:hover:bg-teal-500 text-slate-700 dark:text-slate-200 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition font-bold text-2xl z-10" aria-label="Next Slide">
+                ›
+            </button>
+
+            <div id="slide-dots" class="flex justify-center gap-2 mt-8 flex-wrap">
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & REFERENCES -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 text-sm">
+            <div>
+                <h4 class="text-white font-bold mb-3">Unpacking the Self</h4>
+                <p class="text-xs leading-relaxed max-w-sm mb-4">
+                    A simple educational project created to demonstrate technical web development and course mastery in Understanding the Self.
+                </p>
+                <p class="text-xs text-slate-500">&copy; Academic Team Project. All rights reserved.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Course References</h4>
+                <ul class="text-xs space-y-2 text-slate-400">
+                    <li>• Academic Course Material: Understanding the Self</li>
+                    <li>• General Psychology Concepts & Dimensions of Identity</li>
+                    <li>• Tailwind CSS Framework Documentation</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FULL SCREEN IMAGE EXPANSION MODAL -->
+    <div id="image-modal" class="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="closeModal()">
+        <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-3xl font-bold bg-white/10 hover:bg-white/20 w-12 h-12 rounded-full flex items-center justify-center transition">
+            &times;
+        </button>
+        <div class="max-w-5xl max-h-[90vh] text-center" onclick="event.stopPropagation()">
+            <img id="modal-img" src="" alt="Expanded View" class="max-w-full max-h-[80vh] rounded-2xl mx-auto shadow-2xl object-contain border border-white/20">
+            <p id="modal-caption" class="text-white font-bold text-xl mt-4"></p>
+        </div>
+    </div>
+
+    <!-- LIVE CREATOR CHAT WIDGET (BOTTOM RIGHT) -->
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
+        <!-- CHAT WINDOW BOX (EXPANDED SIZE) -->
+        <div id="chat-box" class="hidden w-[90vw] sm:w-[480px] md:w-[540px] max-w-[95vw] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl shadow-2xl overflow-hidden flex-col transition-all duration-300 mb-4">
+            <!-- CHAT HEADER -->
+            <div class="bg-teal-600 text-white p-5 flex items-center justify-between">
+                <div class="flex items-center gap-3.5">
+                    <div class="relative">
+                        <div class="w-11 h-11 rounded-full bg-teal-800 text-white flex items-center justify-center font-bold text-lg shadow-inner">
+                            👥
+                        </div>
+                        <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-teal-600 rounded-full"></span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-base leading-tight">Chat with Creators</h4>
+                        <p class="text-xs text-teal-100">18 Team Members Online</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-white/80 hover:text-white text-2xl font-bold p-1 rounded-lg hover:bg-white/10 transition">
+                    ✕
+                </button>
+            </div>
+
+            <!-- CHAT MESSAGES AREA (EXPANDED HEIGHT) -->
+            <div id="chat-messages" class="p-5 h-[450px] overflow-y-auto space-y-4 bg-slate-50 dark:bg-slate-900/50 text-sm">
+                <div class="flex gap-3">
+                    <div class="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold shrink-0 text-xs shadow-sm">
+                        U
+                    </div>
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700 shadow-sm max-w-[85%] text-slate-700 dark:text-slate-200 leading-relaxed">
+                        Hello! 👋 Welcome to our <strong>Unpacking the Self</strong> portal. Feel free to leave a question or feedback for our team!
+                    </div>
+                </div>
+            </div>
+
+            <!-- TEAM EMAIL FOOTER NOTE -->
+            <div class="px-5 py-2.5 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-400 text-center">
+                Our team <a href="mailto:prosbrynn@gmail.com" class="text-teal-600 dark:text-teal-400 font-semibold underline">prosbrynn@gmail.com</a> will receive your message via email.
+            </div>
+
+            <!-- CHAT INPUT AREA -->
+            <form id="chat-form" onsubmit="sendChatMessage(event)" class="p-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 flex items-center gap-3">
+                <input 
+                    type="text" 
+                    id="chat-input" 
+                    placeholder="Type your message..." 
+                    class="flex-1 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-teal-500"
+                    required
+                >
+                <button type="submit" id="chat-send-btn" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-4 py-3 rounded-xl transition shadow-md text-sm flex items-center justify-center shrink-0">
+                    ✈️
+                </button>
+            </form>
+        </div>
+
+        <!-- FLOATING TOGGLE BUTTON -->
+        <button onclick="toggleChat()" class="bg-teal-600 hover:bg-teal-700 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 hover:scale-110 active:scale-95 group border-2 border-white/20">
+            <span id="chat-toggle-icon" class="text-2xl group-hover:rotate-12 transition duration-300">💬</span>
+        </button>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. LIGHT / DARK MODE TOGGLE LOGIC ---
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                darkIcon.classList.add('hidden');
+                lightIcon.classList.remove('hidden');
+            }
+        }
+
+        // --- 2. REFLECTION WIDGET LOGIC ---
+        const prompts = {
+            physical: "Reflection Question: What is one habit you can adopt today to give your body better rest or care?",
+            emotional: "Reflection Question: How did you handle stress today, and what emotion did you feel most clearly?",
+            intellectual: "Reflection Question: What new skill, concept, or idea sparked your interest this week?",
+            social: "Reflection Question: Who is one person in your life you can reach out to with appreciation today?",
+            spiritual: "Reflection Question: What core value guided your decisions today?",
+            digital: "Reflection Question: How much screen time did you spend today, and was it meaningful or distracting?"
+        };
+
+        function showPrompt(type) {
+            const outputDiv = document.getElementById('reflection-output');
+            outputDiv.innerHTML = `<p class="text-white font-medium">${prompts[type]}</p>`;
+        }
+
+        // --- 3. IMAGE MODAL LOGIC ---
+        function openModal(imageSrc, captionText) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalCaption = document.getElementById('modal-caption');
+            
+            modalImg.src = imageSrc;
+            modalCaption.innerText = captionText;
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('image-modal').classList.add('hidden');
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // --- 4. TEAM MEMBERS SLIDESHOW LOGIC (18 MEMBERS) ---
+        const teamMembers = [
+            { name: "Brynn Bonghanoy Pros", img: "./images/member1.jpg" },
+            { name: "Leslie Ann Murillo", img: "./images/member2.jpg" },
+            { name: "Pionie Mae dela Serna", img: "./images/member3.jpg" },
+            { name: "Mary Jane Tenegra", img: "./images/member4.jpg" },
+            { name: "Art Kenly Bayhon", img: "./images/member5.jpg" },
+            { name: "Celney Miramonte", img: "./images/member6.jpg" },
+            { name: "Rica Jane Calapiz", img: "./images/member7.jpg" },
+            { name: "Khen Charles Amit", img: "./images/member8.jpg" },
+            { name: "Carl Vincent Eurolfan", img: "./images/member9.jpg" },
+            { name: "Neptune Fidel Bustillo", img: "./images/member10.jpg" },
+            { name: "Jared Ramirez", img: "./images/member11.jpg" },
+            { name: "Kettalyn Rose Reyes", img: "./images/member12.jpg" },
+            { name: "John Rey Galero", img: "./images/member13.jpg" },
+            { name: "John Kyle Gocela", img: "./images/member14.jpg" },
+            { name: "Jay-yann Gesulga", img: "./images/member15.jpg" },
+            { name: "Regie Mae Segovia", img: "./images/member16.jpg" },
+            { name: "Daniel Ruah Jallores", img: "./images/member17.jpg" },
+            { name: "Christian Gillo Balungcas", img: "./images/member18.jpg" }
+        ];
+
+        let currentSlide = 0;
+
+        function updateSlide() {
+            const member = teamMembers[currentSlide];
+            document.getElementById('slide-img').src = member.img;
+            document.getElementById('slide-name').innerText = member.name;
+            document.getElementById('slide-number').innerText = `Member ${currentSlide + 1} of ${teamMembers.length}`;
+
+            const dotsContainer = document.getElementById('slide-dots');
+            dotsContainer.innerHTML = '';
+            teamMembers.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = `w-2.5 h-2.5 rounded-full transition ${idx === currentSlide ? 'bg-teal-600 w-6' : 'bg-slate-300 dark:bg-slate-600'}`;
+                dot.onclick = () => { currentSlide = idx; updateSlide(); };
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % teamMembers.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + teamMembers.length) % teamMembers.length;
+            updateSlide();
+        }
+
+        function expandCurrentMember() {
+            const member = teamMembers[currentSlide];
+            openModal(member.img, member.name);
+        }
+
+        setInterval(nextSlide, 4000);
+        updateSlide();
+
+        // --- 5. 18-MEMBER REFLECTION SPOTLIGHT CAROUSEL LOGIC ---
+        const spotlightData = [
+            {
+                name: "Brynn Bonghanoy Pros",
+                role: "Lead Creator",
+                headline: "BE AUTHENTIC.<br/>BE MINDFUL.<br/><span class='text-teal-400'>BE YOU.</span>",
+                quote: "Unpacking the self taught me that growth isn't about fitting into external expectations. It is about understanding how my emotional, physical, and digital choices shape my inner identity.",
+                img: "./images/member1.jpg"
+            },
+            {
+                name: "Leslie Ann Murillo",
+                role: "Co-Creator & Contributor",
+                headline: "EMBRACE REST.<br/>BUILD PURPOSE.<br/><span class='text-teal-400'>GROW DAILY.</span>",
+                quote: "Balancing my physical well-being with emotional mindfulness allowed me to find quiet focus during intense study projects.",
+                img: "./images/member2.jpg"
+            },
+            {
+                name: "Pionie Mae dela Serna",
+                role: "Co-Creator & Contributor",
+                headline: "CONNECT INNER.<br/>ENGAGE OUTER.<br/><span class='text-teal-400'>STAY TRUE.</span>",
+                quote: "Understanding my social self helped me appreciate the deep connections we build when we listen with empathy.",
+                img: "./images/member3.jpg"
+            },
+            {
+                name: "Mary Jane Tenegra",
+                role: "Co-Creator & Contributor",
+                headline: "SEEK WISDOM.<br/>STRENGTHEN VALUES.<br/><span class='text-teal-400'>LIVE FULFILLED.</span>",
+                quote: "My reflection focuses on keeping a strong spiritual compass while navigating dynamic academic challenges.",
+                img: "./images/member4.jpg"
+            },
+            {
+                name: "Art Kenly Bayhon",
+                role: "Co-Creator & Contributor",
+                headline: "THINK CRITICALLY.<br/>ACT INTEGRITY.<br/><span class='text-teal-400'>SHAPE TOMORROW.</span>",
+                quote: "Developing intellectual curiosity opened up new possibilities for how I approach problem solving and teamwork.",
+                img: "./images/member5.jpg"
+            },
+            {
+                name: "Celney Miramonte",
+                role: "Co-Creator & Contributor",
+                headline: "HARMONIZE BODY.<br/>BALANCE MIND.<br/><span class='text-teal-400'>STAY GROUNDED.</span>",
+                quote: "I learned that physical self-care is the foundation upon which mental clarity and focus are built.",
+                img: "./images/member6.jpg"
+            },
+            {
+                name: "Rica Jane Calapiz",
+                role: "Co-Creator & Contributor",
+                headline: "KNOW EMOTIONS.<br/>FIND PEACE.<br/><span class='text-teal-400'>SPEAK TRUTH.</span>",
+                quote: "Acknowledging my feelings without judgment gave me the freedom to respond calmly in demanding situations.",
+                img: "./images/member7.jpg"
+            },
+            {
+                name: "Khen Charles Amit",
+                role: "Co-Creator & Contributor",
+                headline: "DIGITAL BOUNDS.<br/>REAL FRIENDS.<br/><span class='text-teal-400'>STAY PRESENT.</span>",
+                quote: "Setting clear screen-time limits helped me rebuild real-world conversations and presence with my group.",
+                img: "./images/member8.jpg"
+            },
+            {
+                name: "Carl Vincent Eurolfan",
+                role: "Co-Creator & Contributor",
+                headline: "HONOR HABITS.<br/>INSPIRE ALL.<br/><span class='text-teal-400'>BUILD FAITH.</span>",
+                quote: "Consistent daily habits shape our character far more than occasional big efforts ever could.",
+                img: "./images/member9.jpg"
+            },
+            {
+                name: "Neptune Fidel Bustillo",
+                role: "Co-Creator & Contributor",
+                headline: "STAY CURIOUS.<br/>EXPLORE DEPTH.<br/><span class='text-teal-400'>NEVER STOP.</span>",
+                quote: "Curiosity is the engine of self-awareness. Never hesitate to ask deep questions about who you are becoming.",
+                img: "./images/member10.jpg"
+            },
+            {
+                name: "Jared Ramirez",
+                role: "Co-Creator & Contributor",
+                headline: "SUPPORT FRIENDS.<br/>COMMUNITY FIRST.<br/><span class='text-teal-400'>TOGETHER STRONG.</span>",
+                quote: "Our social dimension flourishes when we prioritize lifting up the people working alongside us.",
+                img: "./images/member11.jpg"
+            },
+            {
+                name: "Kettalyn Rose Reyes",
+                role: "Co-Creator & Contributor",
+                headline: "INNER HARMONY.<br/>GENTLE GRACE.<br/><span class='text-teal-400'>LIGHT WITHIN.</span>",
+                quote: "Self-compassion is just as critical as ambition. Treat your mistakes as valuable lessons along the way.",
+                img: "./images/member12.jpg"
+            },
+            {
+                name: "John Rey Galero",
+                role: "Co-Creator & Contributor",
+                headline: "STEADY MIND.<br/>FOCUSED GOALS.<br/><span class='text-teal-400'>CLEAR PATH.</span>",
+                quote: "When your internal values align with your daily actions, every step forward feels intentional.",
+                img: "./images/member13.jpg"
+            },
+            {
+                name: "John Kyle Gocela",
+                role: "Co-Creator & Contributor",
+                headline: "DIGITAL BALANCE.<br/>TRUE IDENTITY.<br/><span class='text-teal-400'>BE REAL.</span>",
+                quote: "Maintaining an authentic digital footprint means expressing real thoughts rather than a curated persona.",
+                img: "./images/member14.jpg"
+            },
+            {
+                name: "Jay-yann Gesulga",
+                role: "Co-Creator & Contributor",
+                headline: "NURTURE HEALTH.<br/>ENERGY HIGH.<br/><span class='text-teal-400'>LIVE VIBRANT.</span>",
+                quote: "Prioritizing physical vitality gave me the stamina needed to contribute meaningfully to this web project.",
+                img: "./images/member15.jpg"
+            },
+            {
+                name: "Regie Mae Segovia",
+                role: "Co-Creator & Contributor",
+                headline: "EMPATHY FIRST.<br/>DEEP BONDS.<br/><span class='text-teal-400'>KIND HEART.</span>",
+                quote: "True self-awareness opens our eyes to the struggles and strengths of everyone around us.",
+                img: "./images/member16.jpg"
+            },
+            {
+                name: "Daniel Ruah Jallores",
+                role: "Co-Creator & Contributor",
+                headline: "FOCUS INTENT.<br/>EMBRACE GROWTH.<br/><span class='text-teal-400'>STAY INSPIRED.</span>",
+                quote: "Every step in self-reflection brings us closer to understanding our place within our academic and social communities.",
+                img: "./images/member17.jpg"
+            },
+            {
+                name: "Christian Gillo Balungcas",
+                role: "Co-Creator & Contributor",
+                headline: "UNPACK SELF.<br/>DISCOVER ALL.<br/><span class='text-teal-400'>FUTURE READY.</span>",
+                quote: "This collaborative portal represents our shared journey into holistic self-understanding and technical mastery.",
+                img: "./images/member18.jpg"
+            }
+        ];
+
+        let currentSpotlight = 0;
+
+        function updateSpotlight() {
+            const data = spotlightData[currentSpotlight];
+            document.getElementById('spotlight-counter').innerText = `Reflection ${currentSpotlight + 1} of ${spotlightData.length}`;
+            document.getElementById('spotlight-headline').innerHTML = data.headline;
+            document.getElementById('spotlight-quote').innerText = `"${data.quote}"`;
+            document.getElementById('spotlight-author').innerText = data.name;
+            document.getElementById('spotlight-role').innerText = data.role;
+            document.getElementById('spotlight-avatar-initial').innerText = data.name.charAt(0);
+            
+            const imgElem = document.getElementById('spotlight-img');
+            imgElem.src = data.img;
+        }
+
+        function nextSpotlight() {
+            currentSpotlight = (currentSpotlight + 1) % spotlightData.length;
+            updateSpotlight();
+        }
+
+        function prevSpotlight() {
+            currentSpotlight = (currentSpotlight - 1 + spotlightData.length) % spotlightData.length;
+            updateSpotlight();
+        }
+
+        function expandSpotlightImage() {
+            const data = spotlightData[currentSpotlight];
+            openModal(data.img, `${data.name} - Reflection Spotlight`);
+        }
+
+        updateSpotlight();
+
+        // --- 6. SELF-RATING GAME LOGIC ---
+        function updateScores() {
+            const dimensions = ['physical', 'emotional', 'intellectual', 'social', 'spiritual', 'digital'];
+            let total = 0;
+            let lowestDim = '';
+            let lowestVal = 11;
+            let highestDim = '';
+            let highestVal = -1;
+
+            dimensions.forEach(dim => {
+                const val = parseInt(document.getElementById(`rate-${dim}`).value);
+                document.getElementById(`val-${dim}`).innerText = `${val}/10`;
+                total += val;
+
+                if (val < lowestVal) {
+                    lowestVal = val;
+                    lowestDim = dim;
+                }
+                if (val > highestVal) {
+                    highestVal = val;
+                    highestDim = dim;
+                }
+            });
+
+            const averagePct = Math.round((total / 60) * 100);
+            document.getElementById('overall-score').innerText = `${averagePct}%`;
+
+            const dimNames = {
+                physical: 'Physical Self (body & rest)',
+                emotional: 'Emotional Self (stress & mood regulation)',
+                intellectual: 'Intellectual Self (learning & curiosity)',
+                social: 'Social Self (relationships & community)',
+                spiritual: 'Spiritual Self (values & inner peace)',
+                digital: 'Digital Self (screen habits & online presence)'
+            };
+
+            let summaryText = "";
+
+            if (lowestVal === highestVal) {
+                if (highestVal === 10) {
+                    summaryText = `🎉 <strong>Absolute Perfection!</strong> You feel completely fulfilled (10/10) across all 6 dimensions of identity! Keep up this incredible balance.`;
+                } else {
+                    summaryText = `⚖️ <strong>Perfectly Balanced!</strong> You have rated all your dimensions equally at ${highestVal}/10. Keep nurturing all areas to raise your overall wellbeing!`;
+                }
+            } else if (averagePct >= 80) {
+                summaryText = `🌟 Excellent harmony! Your highest strength is your <strong>${dimNames[highestDim]}</strong>. To keep growing, pay slight attention to your <strong>${dimNames[lowestDim]}</strong>.`;
+            } else if (averagePct >= 50) {
+                summaryText = `⚖️ You have a solid foundation! You feel strong in your <strong>${dimNames[highestDim]}</strong>. For better overall alignment, focus on giving more care to your <strong>${dimNames[lowestDim]}</strong>.`;
+            } else {
+                summaryText = `🌱 You are in an active phase of self-discovery. Start small by building routine in your <strong>${dimNames[lowestDim]}</strong> while leaning on your <strong>${dimNames[highestDim]}</strong>.`;
+            }
+
+            document.getElementById('score-analysis').innerHTML = summaryText;
+        }
+
+        updateScores();
+
+        // --- 7. 2D EXPLORATION MINI-GAME LOGIC ---
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let isPaused = false;
+        let collectedCount = 0;
+
+        const player = {
+            x: 320,
+            y: 200,
+            size: 16,
+            speed: 4,
+            color: '#0d9488'
+        };
+
+        const keys = {
+            ArrowUp: false, ArrowDown: false, ArrowLeft: false, ArrowRight: false,
+            w: false, s: false, a: false, d: false
+        };
+
+        const orbs = [
+            { name: "Physical Self", color: "#f59e0b", badgeBg: "bg-amber-500", x: 100, y: 80, size: 14, collected: false, desc: "Focuses on physiological health, body image, nutrition, and restorative rest habits." },
+            { name: "Emotional Self", color: "#f43f5e", badgeBg: "bg-rose-500", x: 540, y: 80, size: 14, collected: false, desc: "Involves understanding mood patterns, managing stress response, and practicing emotional regulation." },
+            { name: "Intellectual Self", color: "#0284c7", badgeBg: "bg-sky-500", x: 100, y: 320, size: 14, collected: false, desc: "Drives critical thinking, continuous curiosity, logic, and intellectual exploration." },
+            { name: "Social Self", color: "#10b981", badgeBg: "bg-emerald-500", x: 540, y: 320, size: 14, collected: false, desc: "Reflects how you build healthy relationships, engage with culture, and interact in group settings." },
+            { name: "Spiritual Self", color: "#a855f7", badgeBg: "bg-purple-500", x: 320, y: 70, size: 14, collected: false, desc: "Centers around core principles, purpose, inner mindfulness, and alignment with personal values." },
+            { name: "Digital Self", color: "#6366f1", badgeBg: "bg-indigo-500", x: 320, y: 330, size: 14, collected: false, desc: "Encompasses your online digital footprint, social media persona, and setting screen-time boundaries." }
+        ];
+
+        window.addEventListener('keydown', (e) => {
+            if (keys.hasOwnProperty(e.key)) {
+                keys[e.key] = true;
+                if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) e.preventDefault();
+            }
+        });
+
+        window.addEventListener('keyup', (e) => {
+            if (keys.hasOwnProperty(e.key)) keys[e.key] = false;
+        });
+
+        function movePlayer(dir) {
+            if (isPaused) return;
+            if (dir === 'up') player.y = Math.max(player.size, player.y - 18);
+            if (dir === 'down') player.y = Math.min(canvas.height - player.size, player.y + 18);
+            if (dir === 'left') player.x = Math.max(player.size, player.x - 18);
+            if (dir === 'right') player.x = Math.min(canvas.width - player.size, player.x + 18);
+        }
+
+        function updateGame() {
+            if (isPaused) return;
+
+            if ((keys.ArrowUp || keys.w) && player.y > player.size) player.y -= player.speed;
+            if ((keys.ArrowDown || keys.s) && player.y < canvas.height - player.size) player.y += player.speed;
+            if ((keys.ArrowLeft || keys.a) && player.x > player.size) player.x -= player.speed;
+            if ((keys.ArrowRight || keys.d) && player.x < canvas.width - player.size) player.x += player.speed;
+
+            orbs.forEach(orb => {
+                if (!orb.collected) {
+                    const dx = player.x - orb.x;
+                    const dy = player.y - orb.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < player.size + orb.size) {
+                        orb.collected = true;
+                        collectedCount++;
+                        triggerOrbModal(orb);
+                    }
+                }
+            });
+
+            document.getElementById('orb-count').innerText = `${collectedCount} / 6`;
+            document.getElementById('orb-bar').style.width = `${(collectedCount / 6) * 100}%`;
+        }
+
+        function drawGame() {
+            ctx.fillStyle = '#0f172a';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < canvas.width; x += 40) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+            }
+            for (let y = 0; y < canvas.height; y += 40) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+            }
+
+            orbs.forEach(orb => {
+                if (!orb.collected) {
+                    ctx.beginPath();
+                    ctx.arc(orb.x, orb.y, orb.size, 0, Math.PI * 2);
+                    ctx.fillStyle = orb.color;
+                    ctx.shadowColor = orb.color;
+                    ctx.shadowBlur = 12;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+
+                    ctx.beginPath();
+                    ctx.arc(orb.x - 4, orb.y - 4, orb.size / 3, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+                    ctx.fill();
+                }
+            });
+
+            ctx.beginPath();
+            ctx.arc(player.x, player.y, player.size, 0, Math.PI * 2);
+            ctx.fillStyle = player.color;
+            ctx.shadowColor = '#14b8a6';
+            ctx.shadowBlur = 10;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath(); ctx.arc(player.x - 4, player.y - 3, 3, 0, Math.PI * 2); ctx.fill();
+            ctx.beginPath(); ctx.arc(player.x + 4, player.y - 3, 3, 0, Math.PI * 2); ctx.fill();
+        }
+
+        function triggerOrbModal(orb) {
+            isPaused = true;
+            const popup = document.getElementById('game-popup');
+            const badge = document.getElementById('popup-badge');
+            
+            badge.className = `text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 ${orb.badgeBg} text-white`;
+            badge.innerText = "Dimension Unlocked";
+            
+            document.getElementById('popup-title').innerText = orb.name;
+            document.getElementById('popup-desc').innerText = orb.desc;
+
+            popup.classList.remove('hidden');
+        }
+
+        function resumeGame() {
+            document.getElementById('game-popup').classList.add('hidden');
+            isPaused = false;
+
+            if (collectedCount === 6) {
+                setTimeout(() => {
+                    const popup = document.getElementById('game-popup');
+                    const badge = document.getElementById('popup-badge');
+                    badge.className = "text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2 bg-teal-500 text-slate-950";
+                    badge.innerText = "Quest Complete!";
+                    document.getElementById('popup-title').innerText = "Self-Discovery Achieved 🎉";
+                    document.getElementById('popup-desc').innerText = "Congratulations! You have unpacked all 6 core dimensions of identity.";
+                    popup.classList.remove('hidden');
+                }, 300);
+            }
+        }
+
+        function gameLoop() {
+            updateGame();
+            drawGame();
+            requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+
+        // --- 8. CLINICAL ASSESSMENT LOGIC ---
+        function submitAssessment(e) {
+            e.preventDefault();
+            const form = e.target;
+            const q1 = parseInt(form.q1.value);
+            const q2 = parseInt(form.q2.value);
+            const q3 = parseInt(form.q3.value);
+            const q4 = parseInt(form.q4.value);
+            const q5 = parseInt(form.q5.value);
+
+            const totalScore = q1 + q2 + q3 + q4 + q5;
+
+            const resultDiv = document.getElementById('assessment-result');
+            const resultTitle = document.getElementById('assessment-title');
+            const resultText = document.getElementById('assessment-text');
+
+            if (totalScore >= 10) {
+                resultTitle.innerText = "Optimal Alignment & Resilience";
+                resultText.innerHTML = "Your assessment reflects strong self-efficacy, positive emotional coping, and healthy social-spiritual grounding. Maintain your supportive routines!";
+            } else if (totalScore >= 6) {
+                resultTitle.innerText = "Moderate Harmony";
+                resultText.innerHTML = "You demonstrate a stable foundation, but certain areas (such as stress management or physical habits) could benefit from intentional self-care routines.";
+            } else {
+                resultTitle.innerText = "Active Support & Growth Needed";
+                resultText.innerHTML = "Your answers indicate notable stress or misalignment across key dimensions. Consider engaging in mindfulness, adjusting daily habits, or reaching out to a support network.";
+            }
+
+            resultDiv.classList.remove('hidden');
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // --- 9. LIVE CHAT WIDGET & EMAILJS INTEGRATION LOGIC ---
+        function toggleChat() {
+            const chatBox = document.getElementById('chat-box');
+            const chatIcon = document.getElementById('chat-toggle-icon');
+            if (chatBox.classList.contains('hidden')) {
+                chatBox.classList.remove('hidden');
+                chatBox.classList.add('flex');
+                chatIcon.innerText = '✕';
+            } else {
+                chatBox.classList.add('hidden');
+                chatBox.classList.remove('flex');
+                chatIcon.innerText = '💬';
+            }
+        }
+
+        function sendChatMessage(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('chat-send-btn');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const messagesContainer = document.getElementById('chat-messages');
+
+            // Render User Message in Chat Window
+            const userMsg = document.createElement('div');
+            userMsg.className = 'flex justify-end gap-3';
+            userMsg.innerHTML = `
+                <div class="bg-teal-600 text-white p-4 rounded-2xl rounded-tr-none shadow-sm max-w-[85%] leading-relaxed">
+                    ${escapeHTML(text)}
+                </div>
+            `;
+            messagesContainer.appendChild(userMsg);
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Indicate Sending State on Button
+            sendBtn.disabled = true;
+            sendBtn.innerHTML = '⏳';
+
+            // Send Email directly to prosbrynn@gmail.com using EmailJS with configured keys
+            const templateParams = {
+                message: text,
+                to_email: "prosbrynn@gmail.com"
+            };
+
+            emailjs.send("service_gu6ym2u", "template_qks14ke", templateParams)
+                .then(function(response) {
+                    sendBtn.disabled = false;
+                    sendBtn.innerHTML = '✈️';
+
+                    // Display Confirmation Message inside Chat
+                    const confirmMsg = document.createElement('div');
+                    confirmMsg.className = 'flex gap-3';
+                    confirmMsg.innerHTML = `
+                        <div class="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold shrink-0 text-xs shadow-sm">
+                            U
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700 shadow-sm max-w-[85%] text-slate-700 dark:text-slate-200 leading-relaxed">
+                            ✓ Message sent! Our team will receive your message at <strong>prosbrynn@gmail.com</strong>.
+                        </div>
+                    `;
+                    messagesContainer.appendChild(confirmMsg);
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                }, function(error) {
+                    sendBtn.disabled = false;
+                    sendBtn.innerHTML = '✈️';
+                    console.error('EmailJS Error:', error);
+
+                    // Display Error Message inside Chat if sending fails
+                    const errorMsg = document.createElement('div');
+                    errorMsg.className = 'flex gap-3';
+                    errorMsg.innerHTML = `
+                        <div class="w-8 h-8 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold shrink-0 text-xs shadow-sm">
+                            !
+                        </div>
+                        <div class="bg-rose-50 dark:bg-rose-950 p-4 rounded-2xl rounded-tl-none border border-rose-200 dark:border-rose-800 shadow-sm max-w-[85%] text-rose-700 dark:text-rose-200 leading-relaxed">
+                            Failed to send email. Please check your EmailJS dashboard settings or template field names.
+                        </div>
+                    `;
+                    messagesContainer.appendChild(errorMsg);
+                    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                });
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+    </script>
+</body>
+</html>
