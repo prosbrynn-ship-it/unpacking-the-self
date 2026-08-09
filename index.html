@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filipino Popular Film Videos</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- GLOBAL & THEME VARIABLES --- */
+        :root {
+            /* Dark Theme Default */
+            --bg-color: #12161A;
+            --card-bg: #1A2026;
+            --accent-blue: #0088FF;
+            --accent-blue-hover: #0066CC;
+            --text-main: #FFFFFF;
+            --text-muted: #A0AAB5;
+            --nav-bg: rgba(18, 22, 26, 0.85);
+            --modal-bg: rgba(0, 0, 0, 0.9);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Light Theme Overrides */
+        [data-theme="light"] {
+            --bg-color: #F4F6F9;
+            --card-bg: #FFFFFF;
+            --accent-blue: #0076E6;
+            --accent-blue-hover: #005BB5;
+            --text-main: #12161A;
+            --text-muted: #5A6573;
+            --nav-bg: rgba(244, 246, 249, 0.85);
+            --modal-bg: rgba(0, 0, 0, 0.8);
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: var(--text-main);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent-blue);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            background: linear-gradient(to right, rgba(18, 22, 26, 0.85) 20%, rgba(18, 22, 26, 0.4) 60%, rgba(18, 22, 26, 0.7)),
+                        url('images/background.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 2;
+            margin-top: 60px;
+            color: #FFFFFF;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .metadata {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: #A0AAB5;
+            flex-wrap: wrap;
+        }
+
+        .rating {
+            color: #FFC107;
+            font-weight: bold;
+        }
+
+        .genre-tag {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .synopsis {
+            color: #A0AAB5;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: #FFF;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-blue-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #FFF;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* --- SECTION COMMONS --- */
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-blue);
+        }
+
+        /* --- SCENES GALLERY --- */
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .scene-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 16 / 9;
+            background-color: var(--card-bg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .scene-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .scene-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.8;
+            color: #FFF;
+            transition: opacity 0.3s ease;
+        }
+
+        .scene-card:hover .play-overlay {
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .play-icon {
+            font-size: 2.5rem;
+            color: #FFF;
+            margin-bottom: 8px;
+        }
+
+        .scene-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* --- CAST & CREW --- */
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 35px 20px;
+            text-align: center;
+        }
+
+        .cast-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Larger Avatar Circles */
+        .avatar-box {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--card-bg);
+            border: 3px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .avatar-box:hover {
+            border-color: var(--accent-blue);
+            transform: scale(1.08);
+            box-shadow: 0 8px 20px rgba(0, 136, 255, 0.3);
+        }
+
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Zoom icon overlay hint on hover */
+        .avatar-box::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            color: #FFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 1.4rem;
+        }
+
+        .avatar-box:hover::after {
+            opacity: 1;
+        }
+
+        .cast-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .cast-role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* --- MODALS (VIDEO & LIGHTBOX) --- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--modal-bg);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            width: 85%;
+            max-width: 900px;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Lightbox Image Preview Modal */
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 8px;
+            object-fit: contain;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--border-color);
+        }
+
+        .lightbox-caption {
+            color: #FFF;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #FFF;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-blue);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .cta-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .avatar-box {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            <i class="fa-solid fa-film"></i> ACT NETWORKING
+        </div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#hero">Main Film</a></li>
+                <li><a href="#scenes">Scenes</a></li>
+                <li><a href="#cast">Cast & Crew</a></li>
+            </ul>
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Mode">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Filipino Popular Film Videos</h1>
+            <div class="metadata">
+                <span class="rating"><i class="fa-solid fa-star"></i> 5.0</span>
+                <span>1h 45m</span>
+                <span class="genre-tag">Romance</span>
+                <span class="genre-tag">Drama</span>
+                <span class="genre-tag">Comedy</span>
+                <span>2026</span>
+            </div>
+            <p class="synopsis">
+                Our film project created by ACT NETWORKING.
+            </p>
+            <div class="cta-buttons">
+                <!-- Plays All YouTube Scenes Continuously -->
+                <button class="btn btn-primary" onclick="playAllScenes()">
+                    <i class="fa-solid fa-play"></i> Play Film
+                </button>
+                <button class="btn btn-secondary" onclick="openVideoModal('vm2O5G0-Byg')">
+                    <i class="fa-solid fa-circle-info"></i> Watch Trailer
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILM SCENES GALLERY -->
+    <section id="scenes">
+        <h2 class="section-title">Film Scenes</h2>
+        <div class="scenes-grid">
+            
+            <!-- Scene 1 -->
+            <div class="scene-card" onclick="openVideoModal('JEbP2AjpFAM')">
+                <img src="https://img.youtube.com/vi/JEbP2AjpFAM/hqdefault.jpg" alt="Scene 1 Thumbnail">
+                <div class="play-overlay">
+                    <i class="fa-solid fa-circle-play play-icon"></i>
+                    <span class="scene-title">Scene 1</span>
+                </div>
+            </div>
+
+            <!-- Scene 2: https://youtu.be/vm2O5G0-Byg -->
+            <div class="scene-card" onclick="openVideoModal('vm2O5G0-Byg')">
+                <img src="https://img.youtube.com/vi/vm2O5G0-Byg/hqdefault.jpg" alt="Scene 2 Thumbnail">
+                <div class="play-overlay">
+                    <i class="fa-solid fa-circle-play play-icon"></i>
+                    <span class="scene-title">Scene 2</span>
+                </div>
+            </div>
+
+            <!-- Scene 3: https://youtu.be/63cw0PdJ-GE -->
+            <div class="scene-card" onclick="openVideoModal('63cw0PdJ-GE')">
+                <img src="https://img.youtube.com/vi/63cw0PdJ-GE/hqdefault.jpg" alt="Scene 3 Thumbnail">
+                <div class="play-overlay">
+                    <i class="fa-solid fa-circle-play play-icon"></i>
+                    <span class="scene-title">Scene 3</span>
+                </div>
+            </div>
+
+            <!-- Scene 4: https://youtube.com/shorts/Q-ds-AHYUVA -->
+            <div class="scene-card" onclick="openVideoModal('Q-ds-AHYUVA')">
+                <img src="https://img.youtube.com/vi/Q-ds-AHYUVA/hqdefault.jpg" alt="Scene 4 Thumbnail">
+                <div class="play-overlay">
+                    <i class="fa-solid fa-circle-play play-icon"></i>
+                    <span class="scene-title">Scene 4</span>
+                </div>
+            </div>
+
+            <!-- Scene 5: https://youtube.com/shorts/I5LkEGNYUNs -->
+            <div class="scene-card" onclick="openVideoModal('I5LkEGNYUNs')">
+                <img src="https://img.youtube.com/vi/I5LkEGNYUNs/hqdefault.jpg" alt="Scene 5 Thumbnail">
+                <div class="play-overlay">
+                    <i class="fa-solid fa-circle-play play-icon"></i>
+                    <span class="scene-title">Scene 5</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CAST & CREW SECTION -->
+    <section id="cast">
+        <h2 class="section-title">Cast & Crew</h2>
+        <div class="cast-grid">
+            
+            <!-- 1. Brynn Bonghanoy Pros -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/brynn.jpg', 'Brynn Bonghanoy Pros - Director & Lead Writer')">
+                    <img src="images/brynn.jpg" alt="Brynn Bonghanoy Pros">
+                </div>
+                <div class="cast-name">Brynn Bonghanoy Pros</div>
+                <div class="cast-role">Director & Lead Writer</div>
+            </div>
+
+            <!-- 2. Calvin Jay Nituda -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/calvin.jpg', 'Calvin Jay Nituda - Producer')">
+                    <img src="images/calvin.jpg" alt="Calvin Jay Nituda">
+                </div>
+                <div class="cast-name">Calvin Jay Nituda</div>
+                <div class="cast-role">Producer</div>
+            </div>
+
+            <!-- 3. Crystal Pino -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/crystal.jpg', 'Crystal Pino - Lead Actor')">
+                    <img src="images/crystal.jpg" alt="Crystal Pino">
+                </div>
+                <div class="cast-name">Crystal Pino</div>
+                <div class="cast-role">Lead Actor</div>
+            </div>
+
+            <!-- 4. Daniel Jallores -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/daniel.jpg', 'Daniel Jallores - Co-Lead Actor')">
+                    <img src="images/daniel.jpg" alt="Daniel Jallores">
+                </div>
+                <div class="cast-name">Daniel Jallores</div>
+                <div class="cast-role">Co-Lead Actor</div>
+            </div>
+
+            <!-- 5. Fidel Bustillo -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/fidel.jpg', 'Fidel Bustillo - Cinematographer')">
+                    <img src="images/fidel.jpg" alt="Fidel Bustillo">
+                </div>
+                <div class="cast-name">Fidel Bustillo</div>
+                <div class="cast-role">Cinematographer</div>
+            </div>
+
+            <!-- 6. Fritz Brigoli -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/fritz.jpg', 'Fritz Brigoli - Film Editor')">
+                    <img src="images/fritz.jpg" alt="Fritz Brigoli">
+                </div>
+                <div class="cast-name">Fritz Brigoli</div>
+                <div class="cast-role">Film Editor</div>
+            </div>
+
+            <!-- 7. Injel Dagarag -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/injel.jpg', 'Injel Dagarag - Sound Designer & Composer')">
+                    <img src="images/injel.jpg" alt="Injel Dagarag">
+                </div>
+                <div class="cast-name">Injel Dagarag</div>
+                <div class="cast-role">Sound Designer & Composer</div>
+            </div>
+
+            <!-- 8. Jared Ramirez -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/jared.jpg', 'Jared Ramirez - Production Designer')">
+                    <img src="images/jared.jpg" alt="Jared Ramirez">
+                </div>
+                <div class="cast-name">Jared Ramirez</div>
+                <div class="cast-role">Production Designer</div>
+            </div>
+
+            <!-- 9. John Paul Radaza -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/johnpaul.jpg', 'John Paul Radaza - Supporting Cast')">
+                    <img src="images/johnpaul.jpg" alt="John Paul Radaza">
+                </div>
+                <div class="cast-name">John Paul Radaza</div>
+                <div class="cast-role">Supporting Cast</div>
+            </div>
+
+            <!-- 10. Johnrey Talle -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/johnrey.jpg', 'Johnrey Talle - Supporting Cast')">
+                    <img src="images/johnrey.jpg" alt="Johnrey Talle">
+                </div>
+                <div class="cast-name">Johnrey Talle</div>
+                <div class="cast-role">Supporting Cast</div>
+            </div>
+
+            <!-- 11. Pauline Heart Bensi Dela Serna -->
+            <div class="cast-card">
+                <div class="avatar-box" onclick="expandImage('images/pauline.jpg', 'Pauline Heart Bensi Dela Serna - Costume & Stylist')">
+                    <img src="images/pauline.jpg" alt="Pauline Heart Bensi Dela Serna">
+                </div>
+                <div class="cast-name">Pauline Heart Bensi Dela Serna</div>
+                <div class="cast-role">Costume & Stylist</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- YOUTUBE VIDEO MODAL -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeVideoModal()">&times;</span>
+            <iframe id="modalIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- IMAGE EXPANSION / LIGHTBOX MODAL -->
+    <div id="imageModal" class="modal">
+        <div class="lightbox-content">
+            <span class="close-modal" onclick="closeImageModal()">&times;</span>
+            <img id="lightboxImg" src="" alt="Expanded Member View">
+            <div id="lightboxCaption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        /* --- YOUTUBE VIDEO MODAL LOGIC --- */
+        const videoModal = document.getElementById('videoModal');
+        const modalIframe = document.getElementById('modalIframe');
+
+        // All scene video IDs in order
+        const scenePlaylist = ['JEbP2AjpFAM', 'vm2O5G0-Byg', '63cw0PdJ-GE', 'Q-ds-AHYUVA', 'I5LkEGNYUNs'];
+
+        function openVideoModal(videoId) {
+            modalIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+            videoModal.style.display = 'flex';
+        }
+
+        // Function to play all scenes continuously starting from Scene 1
+        function playAllScenes() {
+            const firstVideo = scenePlaylist[0];
+            const remainingVideos = scenePlaylist.slice(1).join(',');
+            modalIframe.src = `https://www.youtube.com/embed/${firstVideo}?autoplay=1&playlist=${remainingVideos}&rel=0`;
+            videoModal.style.display = 'flex';
+        }
+
+        function closeVideoModal() {
+            videoModal.style.display = 'none';
+            modalIframe.src = '';
+        }
+
+        /* --- IMAGE EXPANSION (LIGHTBOX) LOGIC --- */
+        const imageModal = document.getElementById('imageModal');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+
+        function expandImage(imageSrc, captionText) {
+            lightboxImg.src = imageSrc;
+            lightboxCaption.innerText = captionText;
+            imageModal.style.display = 'flex';
+        }
+
+        function closeImageModal() {
+            imageModal.style.display = 'none';
+            lightboxImg.src = '';
+        }
+
+        /* --- CLOSE MODALS ON OUTSIDE CLICK --- */
+        window.onclick = function(event) {
+            if (event.target === videoModal) {
+                closeVideoModal();
+            }
+            if (event.target === imageModal) {
+                closeImageModal();
+            }
+        }
+
+        /* --- DARK / LIGHT MODE LOGIC --- */
+        const themeIcon = document.getElementById('themeIcon');
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = 'light';
+
+            if (currentTheme === 'light') {
+                newTheme = 'dark';
+                document.documentElement.removeAttribute('data-theme');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            if (theme === 'light') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+    </script>
+</body>
+</html>
