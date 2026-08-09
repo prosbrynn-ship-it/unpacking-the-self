@@ -85,12 +85,12 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-7 bg-teal-50 dark:bg-slate-800/60 border border-teal-100 dark:border-slate-700 rounded-3xl p-3 sm:p-4 text-center shadow-md overflow-hidden group cursor-pointer relative" onclick="openModal('./images/hero-graphic.jpg', 'Hero Graphic Banner')">
+            <div class="lg:col-span-7 bg-teal-50 dark:bg-slate-800/60 border border-teal-100 dark:border-slate-700 rounded-3xl p-3 sm:p-4 text-center shadow-md overflow-hidden group cursor-pointer relative" onclick="openModal('images/hero-graphic.jpg', 'Hero Graphic Banner')">
                 <img 
-                    src="./images/hero-graphic.jpg" 
+                    src="images/hero-graphic.jpg" 
                     alt="Understanding Identity" 
                     class="w-full h-80 sm:h-[420px] object-cover rounded-2xl group-hover:scale-[1.02] transition duration-300"
-                    onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/ffffff?text=hero-graphic.jpg+Missing';"
+                    onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-16 text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 rounded-2xl font-medium\'>[Add images/hero-graphic.jpg]</div>';"
                 >
                 <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-sm font-semibold rounded-3xl">
                     🔍 Click to View Full Image
@@ -104,8 +104,8 @@
     <!-- INSTRUCTOR SECTION -->
     <section id="instructor" class="py-16 px-6 max-w-5xl mx-auto">
         <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 sm:p-10 shadow-lg flex flex-col sm:flex-row items-center gap-8">
-            <div class="shrink-0 relative group cursor-pointer" onclick="openModal('./images/instructor.jpg', 'Vernel Vergel Otara Sagarino')">
-                <img src="./images/instructor.jpg" alt="Vernel Vergel Otara Sagarino" class="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl object-cover border-4 border-teal-500 shadow-md group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x400/0d9488/ffffff?text=instructor.jpg';">
+            <div class="shrink-0 relative group cursor-pointer" onclick="openModal('images/instructor.jpg', 'Vernel Vergel Otara Sagarino')">
+                <img src="images/instructor.jpg" alt="Vernel Vergel Otara Sagarino" class="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl object-cover border-4 border-teal-500 shadow-md group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='instructor.jpg';">
                 <div class="absolute inset-0 bg-slate-900/30 rounded-2xl opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xs font-semibold">🔍 View</div>
             </div>
             <div class="text-center sm:text-left">
@@ -171,10 +171,10 @@
                 <div class="lg:col-span-5 relative min-h-[350px] lg:min-h-full bg-slate-950 cursor-pointer group" onclick="expandSpotlightImage()">
                     <img 
                         id="spotlight-img"
-                        src="./images/member1.jpg" 
+                        src="images/member1.jpg" 
                         alt="Member Reflection Picture" 
                         class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                        onerror="this.onerror=null; this.src='https://placehold.co/600x800/0f172a/ffffff?text=Member+Photo';"
+                        onerror="this.src='https://via.placeholder.com/600x800/0f172a/334155?text=Photo+Placeholder';"
                     >
                     <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-900 via-transparent to-transparent opacity-80 lg:opacity-50"></div>
                     <div class="absolute bottom-4 right-4 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-semibold text-white border border-white/10 group-hover:bg-teal-600 transition">
@@ -292,12 +292,12 @@
         <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Visual Summary Infographic</h2>
         <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">An overview illustrating how the 6 dimensions interlock to form your identity. (Click image for full-screen view)</p>
         
-        <div class="bg-white dark:bg-slate-800 p-4 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-md group cursor-pointer relative" onclick="openModal('./images/infographic.jpg', 'Visual Summary Infographic')">
+        <div class="bg-white dark:bg-slate-800 p-4 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-md group cursor-pointer relative" onclick="openModal('images/infographic.jpg', 'Visual Summary Infographic')">
             <img 
-                src="./images/infographic.jpg" 
+                src="images/infographic.jpg" 
                 alt="Unpacking the Self Infographic" 
                 class="w-full h-auto rounded-2xl object-cover group-hover:scale-[1.01] transition duration-300"
-                onerror="this.onerror=null; this.src='https://placehold.co/1000x1200/0f172a/ffffff?text=infographic.jpg+Missing';"
+                onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-16 text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 font-medium\'>[Add images/infographic.jpg]</div>';"
             >
             <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-sm font-semibold rounded-3xl">
                 🔍 Click to Expand Full Screen
@@ -305,7 +305,7 @@
         </div>
     </section>
 
-    <!-- NATIVE VIDEO PLAYER SECTION -->
+    <!-- EMBEDDED YOUTUBE VIDEO SECTION -->
     <section id="video" class="py-20 px-6 max-w-4xl mx-auto text-center border-t border-slate-200 dark:border-slate-800">
         <span class="inline-block bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
             Group Presentation
@@ -315,14 +315,15 @@
             Watch our group explore and reflect on the major dimensions of the self.
         </p>
         
-        <div class="relative w-full overflow-hidden rounded-3xl shadow-xl border border-slate-200 dark:border-slate-800 bg-black">
-            <video 
-                class="w-full h-auto rounded-3xl" 
-                controls 
-                preload="metadata">
-                <source src="videos/team-reflection.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="relative w-full overflow-hidden rounded-3xl shadow-xl border border-slate-200 dark:border-slate-800 bg-black" style="padding-top: 56.25%;">
+            <iframe 
+                class="absolute top-0 left-0 w-full h-full" 
+                src="https://www.youtube.com/embed/5lo3c5u73vw" 
+                title="Unpacking the Self Presentation Video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
         </div>
     </section>
 
@@ -609,14 +610,14 @@
 
     <!-- EXTRA VISUAL DIAGRAM SECTION -->
     <section class="py-12 px-6 max-w-5xl mx-auto text-center">
-        <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm group cursor-pointer relative" onclick="openModal('./images/reflection-diagram.jpg', 'Framework Diagram')">
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm group cursor-pointer relative" onclick="openModal('images/reflection-diagram.jpg', 'Framework Diagram')">
             <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-2">Holistic Reflection Framework</h3>
             <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">How our internal self balances with external environments. (Click to expand)</p>
             <img 
-                src="./images/reflection-diagram.jpg" 
+                src="images/reflection-diagram.jpg" 
                 alt="Reflection Framework Diagram" 
                 class="w-full max-h-80 object-contain mx-auto rounded-xl group-hover:scale-105 transition duration-300"
-                onerror="this.onerror=null; this.src='https://placehold.co/800x400/0f172a/ffffff?text=reflection-diagram.jpg+Missing';"
+                onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-8 text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-900 rounded-xl\'>[Add images/reflection-diagram.jpg]</div>';"
             >
             <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-xs font-semibold rounded-3xl">
                 🔍 Click to Expand
@@ -634,7 +635,7 @@
         <div class="relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 sm:p-12 shadow-xl max-w-2xl mx-auto text-center">
             <div id="slideshow-content" class="transition-all duration-300">
                 <div class="relative inline-block group cursor-pointer mb-6" onclick="expandCurrentMember()">
-                    <img id="slide-img" src="./images/member1.jpg" alt="Brynn Bonghanoy Pros" class="w-56 h-56 sm:w-72 sm:h-72 rounded-full mx-auto border-4 border-teal-500 object-cover shadow-lg group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/300x300/0f172a/ffffff?text=Member+Photo';">
+                    <img id="slide-img" src="images/member1.jpg" alt="Brynn Bonghanoy Pros" class="w-56 h-56 sm:w-72 sm:h-72 rounded-full mx-auto border-4 border-teal-500 object-cover shadow-lg group-hover:scale-105 transition duration-300" onerror="this.src='https://via.placeholder.com/300?text=Member+Photo';">
                     <div class="absolute inset-0 bg-slate-900/40 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-sm font-semibold">
                         🔍 Click to Zoom
                     </div>
@@ -815,24 +816,24 @@
 
         // --- 4. TEAM MEMBERS SLIDESHOW LOGIC (18 MEMBERS) ---
         const teamMembers = [
-            { name: "Brynn Bonghanoy Pros", img: "./images/member1.jpg" },
-            { name: "Leslie Ann Murillo", img: "./images/member2.jpg" },
-            { name: "Pionie Mae dela Serna", img: "./images/member3.jpg" },
-            { name: "Mary Jane Tenegra", img: "./images/member4.jpg" },
-            { name: "Art Kenly Bayhon", img: "./images/member5.jpg" },
-            { name: "Celney Miramonte", img: "./images/member6.jpg" },
-            { name: "Rica Jane Calapiz", img: "./images/member7.jpg" },
-            { name: "Khen Charles Amit", img: "./images/member8.jpg" },
-            { name: "Carl Vincent Eurolfan", img: "./images/member9.jpg" },
-            { name: "Neptune Fidel Bustillo", img: "./images/member10.jpg" },
-            { name: "Jared Ramirez", img: "./images/member11.jpg" },
-            { name: "Kettalyn Rose Reyes", img: "./images/member12.jpg" },
-            { name: "John Rey Galero", img: "./images/member13.jpg" },
-            { name: "John Kyle Gocela", img: "./images/member14.jpg" },
-            { name: "Jay-yann Gesulga", img: "./images/member15.jpg" },
-            { name: "Regie Mae Segovia", img: "./images/member16.jpg" },
-            { name: "Daniel Ruah Jallores", img: "./images/member17.jpg" },
-            { name: "Christian Gillo Balungcas", img: "./images/member18.jpg" }
+            { name: "Brynn Bonghanoy Pros", img: "images/member1.jpg" },
+            { name: "Leslie Ann Murillo", img: "images/member2.jpg" },
+            { name: "Pionie Mae dela Serna", img: "images/member3.jpg" },
+            { name: "Mary Jane Tenegra", img: "images/member4.jpg" },
+            { name: "Art Kenly Bayhon", img: "images/member5.jpg" },
+            { name: "Celney Miramonte", img: "images/member6.jpg" },
+            { name: "Rica Jane Calapiz", img: "images/member7.jpg" },
+            { name: "Khen Charles Amit", img: "images/member8.jpg" },
+            { name: "Carl Vincent Eurolfan", img: "images/member9.jpg" },
+            { name: "Neptune Fidel Bustillo", img: "images/member10.jpg" },
+            { name: "Jared Ramirez", img: "images/member11.jpg" },
+            { name: "Kettalyn Rose Reyes", img: "images/member12.jpg" },
+            { name: "John Rey Galero", img: "images/member13.jpg" },
+            { name: "John Kyle Gocela", img: "images/member14.jpg" },
+            { name: "Jay-yann Gesulga", img: "images/member15.jpg" },
+            { name: "Regie Mae Segovia", img: "images/member16.jpg" },
+            { name: "Daniel Ruah Jallores", img: "images/member17.jpg" },
+            { name: "Co-Creator Member", img: "images/member18.jpg" }
         ];
 
         let currentSlide = 0;
@@ -878,126 +879,126 @@
                 role: "Lead Creator",
                 headline: "BE AUTHENTIC.<br/>BE MINDFUL.<br/><span class='text-teal-400'>BE YOU.</span>",
                 quote: "Unpacking the self taught me that growth isn't about fitting into external expectations. It is about understanding how my emotional, physical, and digital choices shape my inner identity.",
-                img: "./images/member1.jpg"
+                img: "images/member1.jpg"
             },
             {
                 name: "Leslie Ann Murillo",
                 role: "Co-Creator & Contributor",
                 headline: "EMBRACE REST.<br/>BUILD PURPOSE.<br/><span class='text-teal-400'>GROW DAILY.</span>",
                 quote: "Balancing my physical well-being with emotional mindfulness allowed me to find quiet focus during intense study projects.",
-                img: "./images/member2.jpg"
+                img: "images/member2.jpg"
             },
             {
                 name: "Pionie Mae dela Serna",
                 role: "Co-Creator & Contributor",
                 headline: "CONNECT INNER.<br/>ENGAGE OUTER.<br/><span class='text-teal-400'>STAY TRUE.</span>",
                 quote: "Understanding my social self helped me appreciate the deep connections we build when we listen with empathy.",
-                img: "./images/member3.jpg"
+                img: "images/member3.jpg"
             },
             {
                 name: "Mary Jane Tenegra",
                 role: "Co-Creator & Contributor",
                 headline: "SEEK WISDOM.<br/>STRENGTHEN VALUES.<br/><span class='text-teal-400'>LIVE FULFILLED.</span>",
                 quote: "My reflection focuses on keeping a strong spiritual compass while navigating dynamic academic challenges.",
-                img: "./images/member4.jpg"
+                img: "images/member4.jpg"
             },
             {
                 name: "Art Kenly Bayhon",
                 role: "Co-Creator & Contributor",
                 headline: "THINK CRITICALLY.<br/>ACT INTEGRITY.<br/><span class='text-teal-400'>SHAPE TOMORROW.</span>",
                 quote: "Developing intellectual curiosity opened up new possibilities for how I approach problem solving and teamwork.",
-                img: "./images/member5.jpg"
+                img: "images/member5.jpg"
             },
             {
                 name: "Celney Miramonte",
                 role: "Co-Creator & Contributor",
                 headline: "HARMONIZE BODY.<br/>BALANCE MIND.<br/><span class='text-teal-400'>STAY GROUNDED.</span>",
                 quote: "I learned that physical self-care is the foundation upon which mental clarity and focus are built.",
-                img: "./images/member6.jpg"
+                img: "images/member6.jpg"
             },
             {
                 name: "Rica Jane Calapiz",
                 role: "Co-Creator & Contributor",
                 headline: "KNOW EMOTIONS.<br/>FIND PEACE.<br/><span class='text-teal-400'>SPEAK TRUTH.</span>",
                 quote: "Acknowledging my feelings without judgment gave me the freedom to respond calmly in demanding situations.",
-                img: "./images/member7.jpg"
+                img: "images/member7.jpg"
             },
             {
                 name: "Khen Charles Amit",
                 role: "Co-Creator & Contributor",
                 headline: "DIGITAL BOUNDS.<br/>REAL FRIENDS.<br/><span class='text-teal-400'>STAY PRESENT.</span>",
                 quote: "Setting clear screen-time limits helped me rebuild real-world conversations and presence with my group.",
-                img: "./images/member8.jpg"
+                img: "images/member8.jpg"
             },
             {
                 name: "Carl Vincent Eurolfan",
                 role: "Co-Creator & Contributor",
                 headline: "HONOR HABITS.<br/>INSPIRE ALL.<br/><span class='text-teal-400'>BUILD FAITH.</span>",
                 quote: "Consistent daily habits shape our character far more than occasional big efforts ever could.",
-                img: "./images/member9.jpg"
+                img: "images/member9.jpg"
             },
             {
                 name: "Neptune Fidel Bustillo",
                 role: "Co-Creator & Contributor",
                 headline: "STAY CURIOUS.<br/>EXPLORE DEPTH.<br/><span class='text-teal-400'>NEVER STOP.</span>",
                 quote: "Curiosity is the engine of self-awareness. Never hesitate to ask deep questions about who you are becoming.",
-                img: "./images/member10.jpg"
+                img: "images/member10.jpg"
             },
             {
                 name: "Jared Ramirez",
                 role: "Co-Creator & Contributor",
                 headline: "SUPPORT FRIENDS.<br/>COMMUNITY FIRST.<br/><span class='text-teal-400'>TOGETHER STRONG.</span>",
                 quote: "Our social dimension flourishes when we prioritize lifting up the people working alongside us.",
-                img: "./images/member11.jpg"
+                img: "images/member11.jpg"
             },
             {
                 name: "Kettalyn Rose Reyes",
                 role: "Co-Creator & Contributor",
                 headline: "INNER HARMONY.<br/>GENTLE GRACE.<br/><span class='text-teal-400'>LIGHT WITHIN.</span>",
                 quote: "Self-compassion is just as critical as ambition. Treat your mistakes as valuable lessons along the way.",
-                img: "./images/member12.jpg"
+                img: "images/member12.jpg"
             },
             {
                 name: "John Rey Galero",
                 role: "Co-Creator & Contributor",
                 headline: "STEADY MIND.<br/>FOCUSED GOALS.<br/><span class='text-teal-400'>CLEAR PATH.</span>",
                 quote: "When your internal values align with your daily actions, every step forward feels intentional.",
-                img: "./images/member13.jpg"
+                img: "images/member13.jpg"
             },
             {
                 name: "John Kyle Gocela",
                 role: "Co-Creator & Contributor",
                 headline: "DIGITAL BALANCE.<br/>TRUE IDENTITY.<br/><span class='text-teal-400'>BE REAL.</span>",
                 quote: "Maintaining an authentic digital footprint means expressing real thoughts rather than a curated persona.",
-                img: "./images/member14.jpg"
+                img: "images/member14.jpg"
             },
             {
                 name: "Jay-yann Gesulga",
                 role: "Co-Creator & Contributor",
                 headline: "NURTURE HEALTH.<br/>ENERGY HIGH.<br/><span class='text-teal-400'>LIVE VIBRANT.</span>",
                 quote: "Prioritizing physical vitality gave me the stamina needed to contribute meaningfully to this web project.",
-                img: "./images/member15.jpg"
+                img: "images/member15.jpg"
             },
             {
                 name: "Regie Mae Segovia",
                 role: "Co-Creator & Contributor",
                 headline: "EMPATHY FIRST.<br/>DEEP BONDS.<br/><span class='text-teal-400'>KIND HEART.</span>",
                 quote: "True self-awareness opens our eyes to the struggles and strengths of everyone around us.",
-                img: "./images/member16.jpg"
+                img: "images/member16.jpg"
             },
             {
                 name: "Daniel Ruah Jallores",
                 role: "Co-Creator & Contributor",
                 headline: "FOCUS INTENT.<br/>EMBRACE GROWTH.<br/><span class='text-teal-400'>STAY INSPIRED.</span>",
                 quote: "Every step in self-reflection brings us closer to understanding our place within our academic and social communities.",
-                img: "./images/member17.jpg"
+                img: "images/member17.jpg"
             },
             {
-                name: "Christian Gillo Balungcas",
+                name: "Co-Creator Member",
                 role: "Co-Creator & Contributor",
                 headline: "UNPACK SELF.<br/>DISCOVER ALL.<br/><span class='text-teal-400'>FUTURE READY.</span>",
                 quote: "This collaborative portal represents our shared journey into holistic self-understanding and technical mastery.",
-                img: "./images/member18.jpg"
+                img: "images/member18.jpg"
             }
         ];
 
