@@ -121,7 +121,7 @@
         </div>
     </section>
 
-    <!-- 18-MEMBER REFLECTION SPOTLIGHT CAROUSEL SECTION -->
+    <!-- 19-MEMBER REFLECTION SPOTLIGHT CAROUSEL SECTION -->
     <section id="spotlight" class="py-12 px-6 max-w-7xl mx-auto">
         <div class="relative bg-slate-900 text-white rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
             <div class="grid lg:grid-cols-12 items-stretch min-h-[480px]">
@@ -132,7 +132,7 @@
                                 Member Reflection Spotlight
                             </span>
                             <span id="spotlight-counter" class="bg-teal-950 text-teal-300 border border-teal-800 text-xs font-bold px-3 py-1 rounded-full">
-                                Reflection 1 of 18
+                                Reflection 1 of 19
                             </span>
                         </div>
                         <h2 id="spotlight-headline" class="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-none mb-6">
@@ -163,7 +163,7 @@
                             <button onclick="nextSpotlight()" class="bg-slate-800 hover:bg-teal-600 text-white w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg transition border border-slate-700" aria-label="Next Reflection">
                                 ›
                             </button>
-                            <span class="text-xs text-slate-400 ml-2">Use arrows to browse all 18 reflections</span>
+                            <span class="text-xs text-slate-400 ml-2">Use arrows to browse all 19 reflections</span>
                         </div>
                     </div>
                 </div>
@@ -625,11 +625,11 @@
         </div>
     </section>
 
-    <!-- MEET THE CREATORS: SLIDESHOW (18 MEMBERS) -->
+    <!-- MEET THE CREATORS: SLIDESHOW (19 MEMBERS) -->
     <section id="team" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-200 dark:border-slate-800">
         <div class="text-center max-w-2xl mx-auto mb-12">
             <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Meet the Creators</h2>
-            <p class="text-slate-600 dark:text-slate-300 text-sm">The 18 members behind this learning portal. (Click any photo for full-screen zoom)</p>
+            <p class="text-slate-600 dark:text-slate-300 text-sm">The 19 members behind this learning portal. (Click any photo for full-screen zoom)</p>
         </div>
 
         <div class="relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 sm:p-12 shadow-xl max-w-2xl mx-auto text-center">
@@ -643,7 +643,7 @@
                 
                 <h3 id="slide-name" class="font-bold text-slate-900 dark:text-white text-2xl mb-2">Brynn Bonghanoy Pros</h3>
                 <span id="slide-number" class="inline-block bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 text-xs font-semibold px-4 py-1.5 rounded-full border border-teal-200 dark:border-teal-800">
-                    Member 1 of 18
+                    Member 1 of 19
                 </span>
             </div>
 
@@ -706,7 +706,7 @@
                     </div>
                     <div>
                         <h4 class="font-bold text-base leading-tight">Chat with Creators</h4>
-                        <p class="text-xs text-teal-100">18 Team Members Online</p>
+                        <p class="text-xs text-teal-100">19 Team Members Online</p>
                     </div>
                 </div>
                 <button onclick="toggleChat()" class="text-white/80 hover:text-white text-2xl font-bold p-1 rounded-lg hover:bg-white/10 transition">
@@ -814,7 +814,7 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // --- 4. TEAM MEMBERS SLIDESHOW LOGIC (18 MEMBERS) ---
+        // --- 4. TEAM MEMBERS SLIDESHOW LOGIC (19 MEMBERS) ---
         const teamMembers = [
             { name: "Brynn Bonghanoy Pros", img: "images/member1.jpg" },
             { name: "Leslie Ann Murillo", img: "images/member2.jpg" },
@@ -833,7 +833,8 @@
             { name: "Jay-yann Gesulga", img: "images/member15.jpg" },
             { name: "Regie Mae Segovia", img: "images/member16.jpg" },
             { name: "Daniel Ruah Jallores", img: "images/member17.jpg" },
-            { name: "Co-Creator Member", img: "images/member18.jpg" }
+            { name: "John Paul Radaza", img: "images/member18.jpg" },
+            { name: "Christian Gillo", img: "images/member19.jpg" }
         ];
 
         let currentSlide = 0;
@@ -872,7 +873,7 @@
         setInterval(nextSlide, 4000);
         updateSlide();
 
-        // --- 5. 18-MEMBER REFLECTION SPOTLIGHT CAROUSEL LOGIC ---
+        // --- 5. 19-MEMBER REFLECTION SPOTLIGHT CAROUSEL LOGIC ---
         const spotlightData = [
             {
                 name: "Brynn Bonghanoy Pros",
@@ -994,11 +995,18 @@
                 img: "images/member17.jpg"
             },
             {
-                name: "Co-Creator Member",
+                name: "John Paul Radaza",
                 role: "Co-Creator & Contributor",
                 headline: "UNPACK SELF.<br/>DISCOVER ALL.<br/><span class='text-teal-400'>FUTURE READY.</span>",
                 quote: "This collaborative portal represents our shared journey into holistic self-understanding and technical mastery.",
                 img: "images/member18.jpg"
+            },
+            {
+                name: "Christian Gillo",
+                role: "Co-Creator & Contributor",
+                headline: "PERSISTENT MIND.<br/>STRONG PURPOSE.<br/><span class='text-teal-400'>KEEP STRIVING.</span>",
+                quote: "Self-improvement requires daily effort and staying grounded in your true values through every challenge.",
+                img: "images/member19.jpg"
             }
         ];
 
@@ -1278,7 +1286,7 @@
             resultDiv.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // --- 9. LIVE CHAT WIDGET & EMAILJS INTEGRATION LOGIC ---
+        // --- 9. LIVE CHAT WIDGET & EMAILJS INTEGRATION LOGIC WITH AUTOMATED RESPONSES ---
         function toggleChat() {
             const chatBox = document.getElementById('chat-box');
             const chatIcon = document.getElementById('chat-toggle-icon');
@@ -1291,6 +1299,36 @@
                 chatBox.classList.remove('flex');
                 chatIcon.innerText = '💬';
             }
+        }
+
+        function triggerAutomatedReply() {
+            const messagesContainer = document.getElementById('chat-messages');
+
+            // List of automated thematic responses on self-discovery
+            const botReplies = [
+                "✨ \"Knowing yourself is the beginning of all wisdom.\" — Keep exploring your dimensions!",
+                "🌱 Keep learning and discovering who you are! Every step in self-reflection brings growth.",
+                "💡 Thanks for reaching out! Remember to take time today to check in with your physical, emotional, and spiritual well-being.",
+                "🌟 Continuous self-discovery is a lifelong journey. Keep asking deep questions and staying mindful!"
+            ];
+
+            // Pick a random response from the array
+            const randomReply = botReplies[Math.floor(Math.random() * botReplies.length)];
+
+            // Render Automated Message in Chat Window
+            const botMsg = document.createElement('div');
+            botMsg.className = 'flex gap-3';
+            botMsg.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold shrink-0 text-xs shadow-sm">
+                    U
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl rounded-tl-none border border-slate-200 dark:border-slate-700 shadow-sm max-w-[85%] text-slate-700 dark:text-slate-200 leading-relaxed">
+                    ${randomReply}
+                </div>
+            `;
+            
+            messagesContainer.appendChild(botMsg);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
         function sendChatMessage(e) {
@@ -1318,7 +1356,7 @@
             sendBtn.disabled = true;
             sendBtn.innerHTML = '⏳';
 
-            // Send Email directly to prosbrynn@gmail.com using EmailJS with configured keys
+            // Send Email directly to prosbrynn@gmail.com using EmailJS
             const templateParams = {
                 message: text,
                 to_email: "prosbrynn@gmail.com"
@@ -1342,6 +1380,10 @@
                     `;
                     messagesContainer.appendChild(confirmMsg);
                     messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+                    // Trigger automated bot reply after 1 second delay
+                    setTimeout(triggerAutomatedReply, 1000);
+
                 }, function(error) {
                     sendBtn.disabled = false;
                     sendBtn.innerHTML = '✈️';
@@ -1360,6 +1402,9 @@
                     `;
                     messagesContainer.appendChild(errorMsg);
                     messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+                    // Trigger automated bot reply even if email fails
+                    setTimeout(triggerAutomatedReply, 1000);
                 });
         }
 
